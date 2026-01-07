@@ -23,7 +23,7 @@
         {
             "question": "Quais investimentos digitais vocês recomendam?",
             "answer": "Focamos em oportunidades seguras e testadas. Isso inclui aplicativos que oferecem renda passiva e plataformas de investimento com boa reputação. O mais importante é começar com pouco e entender os riscos. Na nossa plataforma, damos o caminho das pedras.",
-            "keywords": ["investimentos digitais", "investir", "aplicativos", "plataformas", "seguros", "renda passiva", "dinheiro"]
+            "keywords": ["investimentos digitais", "investir", "aplicativos", "plataformas", "seguros", "renda passiva", "dinheiro", "ganhar dinheiro"]
         },
         {
             "question": "Quem é Milvan?",
@@ -39,6 +39,11 @@
             "question": "Como posso entrar em contato?",
             "answer": "Você pode falar diretamente comigo, Milvan, pelo WhatsApp no número 857658841. O atendimento é de Segunda a Sexta, das 8h às 18h.",
             "keywords": ["contato", "whatsapp", "número", "telefone", "ajuda", "suporte"]
+        },
+        {
+            "question": "Saudação",
+            "answer": "Olá! Sou Milvan, seu consultor de IA. Estou pronto para te ajudar a encontrar as melhores estratégias para gerar renda online. Pode perguntar!",
+            "keywords": ["oi", "olá", "bom dia", "boa tarde", "boa noite", "tudo bem"]
         }
     ]
 }

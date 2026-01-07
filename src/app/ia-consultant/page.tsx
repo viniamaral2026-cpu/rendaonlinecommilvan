@@ -5,11 +5,10 @@ import { useFormState, useFormStatus } from 'react-dom';
 import { askConsultant } from './actions';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Send, Sparkles, User } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import Image from 'next/image';
 
 type Message = {
   id: number;
@@ -86,9 +85,9 @@ export default function IAConsultantPage() {
                   <div key={message.id} className={cn("flex items-start gap-4", message.role === 'user' ? 'justify-end' : 'justify-start')}>
                       {message.role === 'assistant' && (
                           <Avatar className="w-10 h-10 border-2 border-primary/50">
-                              <div className="relative w-full h-full">
-                                  <Image src="/LOGO_DRESBACH_500-removebg-preview.png" alt="Milvan IA" layout="fill" objectFit="cover" />
-                              </div>
+                              <AvatarFallback className='bg-primary/20'>
+                                <Sparkles className="w-5 h-5 text-primary" />
+                              </AvatarFallback>
                           </Avatar>
                       )}
                       <div className={cn(
