@@ -109,7 +109,7 @@ function SalesChart() {
               cursor={false}
               content={<ChartTooltipContent indicator="dot" />}
             />
-            <Bar dataKey="total" fill="var(--color-total)" radius={4} />
+            <Bar dataKey="total" fill="hsl(var(--chart-1))" radius={4} />
           </BarChart>
         </ChartContainer>
       </CardContent>

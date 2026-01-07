@@ -41,7 +41,7 @@ export default function AfiliadosPage() {
               </div>
             </div>
             <CardFooter>
-              <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
+              <Button className="w-full">
                 Promover Produto
               </Button>
             </CardFooter>

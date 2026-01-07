@@ -25,7 +25,7 @@ const initialState = {
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <Button type="submit" className="w-full md:w-auto bg-accent text-accent-foreground hover:bg-accent/90" disabled={pending}>
+    <Button type="submit" className="w-full md:w-auto" disabled={pending}>
       {pending ? <LoaderCircle className="animate-spin" /> : "Gerar Insights"}
     </Button>
   );
