@@ -8,15 +8,12 @@ export function Footer() {
     <footer className="bg-gray-900 text-gray-400">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-          {/* Coluna Renda Online Fácil */}
           <div>
             <h3 className="font-bold text-white text-lg mb-4">Renda Online Fácil</h3>
             <p className="text-sm">
               Sua plataforma definitiva para aprender sobre marketing digital e importação em Moçambique.
             </p>
           </div>
-
-          {/* Coluna Links Rápidos */}
           <div>
             <h3 className="font-bold text-white text-lg mb-4">Links Rápidos</h3>
             <ul className="space-y-2 text-sm">
@@ -26,8 +23,6 @@ export function Footer() {
               <li><Link href="/#contact" className="hover:text-white transition-colors">Contato</Link></li>
             </ul>
           </div>
-
-          {/* Coluna Legal */}
           <div>
             <h3 className="font-bold text-white text-lg mb-4">Legal</h3>
             <ul className="space-y-2 text-sm">
@@ -36,21 +31,17 @@ export function Footer() {
             </ul>
           </div>
         </div>
-
-        {/* Seção de Copyright e Logo */}
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col items-center text-center text-sm space-y-4">
-          <div>
             <p>&copy; {currentYear} Renda Online Fácil - Humorista Milvan. Todos os direitos reservados.</p>
-            <p>Desenvolvido por Tech Ops (Dresbach Hosting do Brasil Ltda)</p>
-          </div>
-          <div className="flex items-center mt-4">
-            <Image
-              src="/LOGO_DRESBACH_500-removebg-preview.png"
-              alt="Logo Dresbach Hosting"
-              width={150}
-              height={38} 
-            />
-          </div>
+            <div className="flex items-center gap-2">
+                 <p>Desenvolvido por Tech Ops (Dresbach Hosting do Brasil Ltda)</p>
+                <Image
+                    src="/LOGO_DRESBACH_500-removebg-preview.png"
+                    alt="Logo Dresbach Hosting"
+                    width={100}
+                    height={25} 
+                />
+            </div>
         </div>
       </div>
     </footer>

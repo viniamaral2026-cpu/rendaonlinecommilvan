@@ -11,10 +11,9 @@ import {
 
 const NAV_LINKS = [
     { href: "/", label: "Início" },
-    { href: "/#affiliates", label: "Afiliados" },
     { href: "/#products", label: "Produtos" },
     { href: "/#tutorials", label: "Dicas Premium" },
-    { href: "/investimentos", label: "IA Consultant" },
+    { href: "/ia-consultant", label: "IA Consultant" },
     { href: "/#contact", label: "Contato" },
 ];
 

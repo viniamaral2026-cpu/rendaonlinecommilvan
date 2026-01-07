@@ -43,7 +43,7 @@ const CATEGORIES = [
     icon: TrendingUp,
     title: "Investimentos Digitais",
     description: "Aplicativos que pagam de verdade e plataformas de investimento seguras.",
-    link: "/investimentos",
+    link: "/ia-consultant",
     bgColor: "bg-green-50 dark:bg-green-900/20",
     iconColor: "text-green-500",
     phrases: ["Renda Passiva", "Apps Confiáveis", "Saque via M-Pesa"],
@@ -365,15 +365,13 @@ export default function HomePage() {
           <p className="text-gray-300 mb-8">
             Pergunte à nossa Inteligência Artificial. Digite um tema (ex: "como vender no Instagram", "investir em ações", "criar um negócio de importação" ou "marketing de afiliados").
           </p>
-          <div className="max-w-lg mx-auto bg-white rounded-xl p-2 flex shadow-2xl">
-            <Input
-              placeholder="Ex: Como vender mais no Instagram?"
-              className="flex-1 px-4 py-2 text-gray-900 outline-none rounded-l-lg bg-transparent border-none focus:ring-0 focus-visible:ring-offset-0"
-              type="text"
-            />
-            <Button disabled={false} className="bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-400 text-white px-6 py-2 rounded-lg font-bold transition-colors flex items-center">
-              <Send className="h-5 w-5" />
-            </Button>
+          <div className="max-w-lg mx-auto">
+             <Link href="/ia-consultant">
+                <Button variant="secondary" size="lg" className="w-full bg-white/90 text-indigo-700 hover:bg-white">
+                    Fazer uma pergunta
+                    <Send className="ml-2 h-5 w-5" />
+                </Button>
+            </Link>
           </div>
         </div>
       </section>
