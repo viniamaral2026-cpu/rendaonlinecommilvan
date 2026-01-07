@@ -408,32 +408,32 @@ export default function HomePage() {
       <section id="contact" className="py-20 lg:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold">Fale Comigo</h2>
-            <p className="text-muted-foreground mt-2">
-              Tem dúvidas? Quer entrar no grupo VIP? Entre em contato agora mesmo.
-            </p>
-            <div className="inline-block w-20 h-1 bg-primary mt-4 rounded-full"></div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Fale Comigo</h2>
+              <p className="text-lg max-w-2xl mx-auto text-gray-600">Tem dúvidas? Quer entrar no grupo VIP? Entre em contato agora mesmo.</p>
+              <div className="h-1 w-24 mx-auto mt-6 rounded-full bg-green-600"></div>
           </div>
-          <div className="max-w-4xl mx-auto bg-green-50 dark:bg-green-900/20 p-8 rounded-xl">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="space-y-4">
-                <h3 className="text-2xl font-bold text-foreground">Suporte Direto</h3>
-                <p className="text-muted-foreground">
-                  Meu nome é <span className="font-bold">Milvan</span>. Estou disponível para ajudar você a configurar sua conta, importar seus primeiros produtos ou desbloquear o conteúdo premium.
-                </p>
-                <div className="flex items-center gap-3 text-muted-foreground font-semibold">
-                  <Phone className="w-5 h-5 text-primary" />
-                  <span>857658841</span>
-                </div>
+          <div className="bg-green-50 rounded-3xl p-8 lg:p-12 shadow-sm border border-green-100">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                  <div className="text-left space-y-6">
+                      <h3 className="text-2xl font-bold text-gray-900">Suporte Direto</h3>
+                      <p className="text-gray-600">Meu nome é <strong>Milvan</strong>. Estou disponível para ajudar você a configurar sua conta, importar seus primeiros produtos ou desbloquear o conteúdo premium.</p>
+                      <div className="flex items-center space-x-3 text-gray-700">
+                          <div className="bg-white p-2 rounded-full shadow-sm">
+                              <Phone className="h-5 w-5 text-green-600" />
+                          </div>
+                          <span className="font-mono text-lg font-semibold">857658841</span>
+                      </div>
+                  </div>
+                  <div className="flex flex-col gap-4">
+                      <a href="https://wa.me/258857658841?text=Olá Milvan, gostaria de saber mais sobre o Renda Online Fácil." target="_blank" rel="noreferrer" className="group relative flex items-center justify-center space-x-3 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl shadow-lg shadow-green-200 transition-all transform hover:-translate-y-1 active:scale-95 overflow-hidden">
+                          <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                          <MessageCircle className="h-6 w-6 group-hover:-rotate-12 transition-transform duration-300" />
+                          <span className="font-bold text-lg relative z-10">Chamar no WhatsApp</span>
+                          <DollarSign className="h-5 w-5 text-yellow-300 absolute right-4 opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-300 animate-bounce" />
+                      </a>
+                      <p className="text-xs text-gray-500 mt-2">Atendimento de Segunda a Sexta, das 8h às 18h.</p>
+                  </div>
               </div>
-              <div className="text-center">
-                <Button size="lg" className="w-full md:w-auto bg-[#25D366] hover:bg-[#20b857] text-white">
-                   <MessageCircle className="w-5 h-5 mr-2" />
-                  Chamar no WhatsApp
-                </Button>
-                <p className="text-xs text-muted-foreground mt-2">Atendimento de Segunda a Sexta, das 8h às 18h.</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
