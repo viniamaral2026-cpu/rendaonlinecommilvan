@@ -14,35 +14,48 @@ import { KNOWLEDGE_BASE } from '../data/knowledge-base';
 
 // Simple text similarity search (you could replace this with a vector DB for more complex apps)
 function findRelevantKnowledge(query: string): string {
-    const queryLower = query.toLowerCase();
-    let bestMatch = { content: "Não encontrei uma resposta direta para sua pergunta, mas aqui estão algumas informações gerais sobre o Renda Online Fácil...", score: 0 };
+    const queryLower = query.toLowerCase().trim();
+    let bestMatch = { content: "", score: 0 };
+    
+    // Fallback answer with general information
+    const fallbackAnswer = `Não encontrei uma resposta exata para sua pergunta. O Renda Online Fácil é uma plataforma educacional focada em ensinar como gerar renda em Moçambique através de:
+- **Marketing de Afiliados:** Ganhe comissões divulgando produtos.
+- **Importação da China:** Compre produtos baratos para revender com lucro.
+- **Vendas Online:** Use WhatsApp e Facebook para vender mais.
+- **Investimentos Digitais:** Conheça oportunidades seguras.
+Você pode perguntar sobre qualquer um desses tópicos!`;
+
+    if (!query) {
+        return fallbackAnswer;
+    }
     
     KNOWLEDGE_BASE.forEach(item => {
         const keywords = item.keywords.map(k => k.toLowerCase());
         let currentScore = 0;
 
+        // Score based on keyword matches
         keywords.forEach(keyword => {
             if (queryLower.includes(keyword)) {
                 currentScore++;
             }
         });
         
-        // Boost score for full phrase match
-        if (queryLower.includes(item.question.toLowerCase())) {
-            currentScore += 2;
-        }
+        // Higher score for more specific matches
+        const queryWords = new Set(queryLower.split(/\s+/));
+        const matchingKeywords = keywords.filter(kw => queryWords.has(kw));
+        currentScore += matchingKeywords.length * 2;
+
 
         if (currentScore > bestMatch.score) {
             bestMatch = { content: item.answer, score: currentScore };
         }
     });
 
-    if (bestMatch.score > 0) {
+    if (bestMatch.score > 1) { // Require a minimum score to be considered relevant
         return bestMatch.content;
     }
 
-    // Return a generic answer if no good match is found
-    return "Desculpe, não tenho uma resposta para essa pergunta no momento. O Renda Online Fácil foca em Marketing de Afiliados, Importação da China, Vendas Online e Investimentos Digitais. Você poderia reformular sua pergunta sobre um desses tópicos?";
+    return fallbackAnswer;
 }
 
 
@@ -67,6 +80,7 @@ const prompt = ai.definePrompt({
   prompt: `Você é Milvan, o especialista por trás do "Renda Online Fácil". Sua personalidade é amigável, direta e motivadora.
   
   Sua tarefa é responder à pergunta do usuário usando APENAS as informações fornecidas no CONTEXTO abaixo. Não invente nada.
+  Se o contexto já for uma resposta completa, use-a diretamente. Se for uma explicação geral, use-a para contextualizar a resposta à pergunta específica.
   Seja breve e vá direto ao ponto. Use um tom encorajador e prático.
 
   CONTEXTO:
