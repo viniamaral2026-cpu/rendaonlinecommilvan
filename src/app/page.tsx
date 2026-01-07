@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Star, ArrowRight, Share2, Package, Globe, BarChart, Rocket, Eye, Award, Download, Dot, Lock, PlayCircle, Sparkles, Send } from "lucide-react";
+import { Star, ArrowRight, Share2, Package, Globe, BarChart, Rocket, Eye, Award, Download, Lock, PlayCircle, Sparkles, Send, Phone, MessageCircle } from "lucide-react";
 import { TUTORIALS, AFFILIATE_PRODUCTS as DIGITAL_PRODUCTS } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
@@ -107,7 +107,7 @@ export default function HomePage() {
             {CATEGORIES.map((category) => (
                <Card key={category.title} className={cn("text-left hover:shadow-lg transition-shadow border-0", category.bgColor)}>
                <CardHeader>
-                  <div className={cn("rounded-lg w-fit p-2.5 flex items-center justify-start bg-background/60 mb-4", category.bgColor)}>
+                  <div className={cn("rounded-lg w-fit p-2.5 flex items-center justify-start bg-white dark:bg-gray-950 mb-4")}>
                    <category.icon className={cn("w-6 h-6", category.iconColor)} />
                  </div>
                  <CardTitle>{category.title}</CardTitle>
@@ -116,7 +116,7 @@ export default function HomePage() {
                  <p className="text-muted-foreground text-sm">{category.description}</p>
                </CardContent>
                <CardFooter>
-                  <div className="flex items-center text-xs font-semibold text-primary">
+                  <div className={cn("flex items-center text-xs font-semibold", category.iconColor)}>
                      <Star className="w-4 h-4 mr-1.5 fill-current" />
                      <span>{category.footerText}</span>
                   </div>
@@ -250,6 +250,40 @@ export default function HomePage() {
               <Button type="submit" size="icon" className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full w-10 h-10 bg-gray-200 hover:bg-white">
                 <Send className="w-5 h-5 text-purple-800" />
               </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contato" className="py-20 lg:py-24">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold">Fale Comigo</h2>
+            <p className="text-muted-foreground mt-2">
+              Tem dúvidas? Quer entrar no grupo VIP? Entre em contato agora mesmo.
+            </p>
+            <div className="inline-block w-20 h-1 bg-primary mt-4 rounded-full"></div>
+          </div>
+          <div className="max-w-4xl mx-auto bg-green-50 dark:bg-green-900/20 p-8 rounded-xl">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold text-foreground">Suporte Direto</h3>
+                <p className="text-muted-foreground">
+                  Meu nome é <span className="font-bold">Milvan</span>. Estou disponível para ajudar você a configurar sua conta, importar seus primeiros produtos ou desbloquear o conteúdo premium.
+                </p>
+                <div className="flex items-center gap-3 text-muted-foreground font-semibold">
+                  <Phone className="w-5 h-5 text-primary" />
+                  <span>857658841</span>
+                </div>
+              </div>
+              <div className="text-center">
+                <Button size="lg" className="w-full md:w-auto bg-[#25D366] hover:bg-[#20b857] text-white">
+                   <MessageCircle className="w-5 h-5 mr-2" />
+                  Chamar no WhatsApp
+                </Button>
+                <p className="text-xs text-muted-foreground mt-2">Atendimento de Segunda a Sexta, das 8h às 18h.</p>
+              </div>
             </div>
           </div>
         </div>
