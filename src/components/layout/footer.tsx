@@ -51,22 +51,12 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-center items-center text-sm">
           <p className="mb-4 md:mb-0 text-center md:text-left">
             &copy; {currentYear} Renda Online Fácil - Humorista Milvan. Todos os direitos reservados.
-          </p>
-          <p className="flex items-center gap-1.5">
-            Desenvolvido
-            <Heart className="w-4 h-4 text-red-500 fill-current" />
-            por
-            <Link href="#" className="font-semibold text-white hover:underline">
-              Suprema Sites Express
-            </Link>
           </p>
         </div>
       </div>
     </footer>
   );
 }
-
-    
