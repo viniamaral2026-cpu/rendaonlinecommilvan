@@ -21,9 +21,9 @@ export function Footer() {
             <h3 className="font-bold text-white text-lg mb-4">Links Rápidos</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/" className="hover:text-white transition-colors">Início</Link></li>
-              <li><Link href="/#affiliates" className="hover:text-white transition-colors">Afiliados</Link></li>
               <li><Link href="/#products" className="hover:text-white transition-colors">Produtos</Link></li>
               <li><Link href="/#tutorials" className="hover:text-white transition-colors">Tutoriais</Link></li>
+              <li><Link href="/#contact" className="hover:text-white transition-colors">Contato</Link></li>
             </ul>
           </div>
 
@@ -31,8 +31,8 @@ export function Footer() {
           <div>
             <h3 className="font-bold text-white text-lg mb-4">Legal</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="#" className="hover:text-white transition-colors">Termos de Uso</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Política de Privacidade</Link></li>
+              <li><Link href="/termos-de-uso" className="hover:text-white transition-colors">Termos de Uso</Link></li>
+              <li><Link href="/politica-de-privacidade" className="hover:text-white transition-colors">Política de Privacidade</Link></li>
             </ul>
           </div>
         </div>
