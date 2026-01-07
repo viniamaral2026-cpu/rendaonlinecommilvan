@@ -33,27 +33,27 @@ const Logo = () => (
 export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-20 items-center mx-auto px-4">
-        <div className="flex-1 flex justify-start">
+      <div className="container flex h-20 items-center justify-between mx-auto px-4">
+        <div className="flex items-center">
             <Logo />
         </div>
-        <nav className="hidden md:flex gap-6 text-sm font-medium items-center text-gray-700 flex-1 justify-center">
+        <nav className="hidden md:flex gap-6 text-sm font-medium items-center text-muted-foreground">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className="transition-colors hover:text-green-600 font-medium"
+              className="transition-colors hover:text-primary"
             >
               {link.label}
             </Link>
           ))}
         </nav>
-        <div className="hidden md:flex items-center justify-end space-x-4 flex-1">
-           <Button asChild className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition-colors font-semibold shadow-lg hover:shadow-green-500/50 transform hover:scale-105">
+        <div className="hidden md:flex items-center justify-end">
+           <Button asChild>
             <Link href="#produtos">Começar Agora</Link>
            </Button>
         </div>
-        <div className="md:hidden flex flex-1 justify-end">
+        <div className="md:hidden flex items-center">
             <Sheet>
             <SheetTrigger asChild>
                 <Button
@@ -78,7 +78,7 @@ export function Header() {
                     {link.label}
                     </Link>
                 ))}
-                 <Button asChild className="mt-4 bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition-colors font-semibold shadow-lg hover:shadow-green-500/50 transform hover:scale-105">
+                 <Button asChild className="mt-4">
                     <Link href="#produtos">Começar Agora</Link>
                  </Button>
                 </div>
