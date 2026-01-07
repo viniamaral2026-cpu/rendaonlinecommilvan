@@ -13,24 +13,32 @@ const CATEGORIES = [
     title: "Marketing de Afiliados",
     description: "Ganhe comissões indicando produtos de terceiros. Sem estoque, sem burocracia.",
     link: "/#",
+    iconBgColor: "bg-blue-100 dark:bg-blue-900/50",
+    iconTextColor: "text-blue-500",
   },
   {
     icon: Package,
     title: "Importação da China",
     description: "Aprenda a buscar produtos inovadores e com margens de lucro surpreendentes.",
     link: "/#",
+    iconBgColor: "bg-orange-100 dark:bg-orange-900/50",
+    iconTextColor: "text-orange-500",
   },
   {
     icon: ShoppingBag,
     title: "Vendas Online",
     description: "Crie sua loja ou WhatsApp/Facebook para vender para todo o país, 24h por dia.",
     link: "/#",
+    iconBgColor: "bg-purple-100 dark:bg-purple-900/50",
+    iconTextColor: "text-purple-500",
   },
   {
     icon: BarChart,
     title: "Investimentos Digitais",
     description: "Explore o mundo das criptomoedas, ações e outras formas de fazer seu dinheiro render.",
     link: "/investimentos",
+    iconBgColor: "bg-green-100 dark:bg-green-900/50",
+    iconTextColor: "text-green-500",
   },
 ];
 
@@ -78,15 +86,16 @@ export default function HomePage() {
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Ganhe Dinheiro Online</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto mb-12">
+          <p className="text-muted-foreground max-w-2xl mx-auto">
             Descubra as principais formas de renda extra que ensinamos em nossa plataforma.
           </p>
+          <div className="inline-block w-20 h-1 bg-primary mt-2 mb-12 rounded-full"></div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {CATEGORIES.map((category) => (
-              <Card key={category.title} className="text-left hover:shadow-lg transition-shadow">
+              <Card key={category.title} className="text-left hover:shadow-lg transition-shadow bg-muted/30">
                 <CardHeader>
-                  <div className="bg-yellow-400/10 text-yellow-500 rounded-lg w-12 h-12 flex items-center justify-center mb-4">
-                    <category.icon className="w-6 h-6" />
+                  <div className={`rounded-lg w-12 h-12 flex items-center justify-center mb-4 ${category.iconBgColor}`}>
+                    <category.icon className={`w-6 h-6 ${category.iconTextColor}`} />
                   </div>
                   <CardTitle>{category.title}</CardTitle>
                 </CardHeader>
@@ -94,9 +103,10 @@ export default function HomePage() {
                   <p className="text-muted-foreground text-sm">{category.description}</p>
                 </CardContent>
                 <CardFooter>
-                  <Link href={category.link} className="text-sm font-semibold text-primary hover:underline flex items-center">
-                    Ver mais <ArrowRight className="w-4 h-4 ml-1" />
-                  </Link>
+                   <div className="flex items-center text-sm text-muted-foreground">
+                      <Star className="w-4 h-4 mr-2 text-yellow-400 fill-yellow-400" />
+                      <span className="font-semibold">Vend</span>
+                   </div>
                 </CardFooter>
               </Card>
             ))}
@@ -105,15 +115,15 @@ export default function HomePage() {
       </section>
 
        {/* Affiliate CTA */}
-      <section className="bg-muted py-16">
+      <section className="py-16">
         <div className="container mx-auto px-4 text-center">
-           <div className="max-w-2xl mx-auto">
+          <Card className="max-w-3xl mx-auto p-8 bg-muted/50">
              <h2 className="text-3xl font-bold mb-4">Torne-se um Afiliado de Sucesso</h2>
              <p className="text-muted-foreground mb-8">
                Nós fornecemos os links, os criativos e as estratégias. Você só precisa divulgar e ganhar.
              </p>
              <Button size="lg">Quero Meus Links de Afiliado</Button>
-           </div>
+          </Card>
         </div>
       </section>
 
