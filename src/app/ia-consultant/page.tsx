@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
-import { useFormState, useFormStatus } from 'react-dom';
+import { useState, useRef, useEffect, useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 import { askConsultant } from './actions';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -43,9 +43,10 @@ export default function IAConsultantPage() {
   const formRef = useRef<HTMLFormElement>(null);
   
   const initialState = { data: null, error: null };
-  const [state, dispatch] = useFormState(askConsultant, initialState);
+  const [state, dispatch] = useActionState(askConsultant, initialState);
 
   useEffect(() => {
+    // This effect runs when the server action completes
     if (state.data?.answer) {
       setMessages((prev) => [
         ...prev,
@@ -112,7 +113,7 @@ function ChatMessages({ messages }: { messages: Message[] }) {
 
     useEffect(() => {
         if (scrollAreaRef.current) {
-            const viewport = scrollAreaRef.current.querySelector('div');
+            const viewport = scrollAreaRef.current.querySelector('div[data-radix-scroll-area-viewport]');
             if (viewport) {
                 viewport.scrollTo({ top: viewport.scrollHeight, behavior: 'smooth' });
             }

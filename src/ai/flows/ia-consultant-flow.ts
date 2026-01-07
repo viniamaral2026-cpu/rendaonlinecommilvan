@@ -16,7 +16,6 @@ function findRelevantKnowledge(query: string): string {
     const queryLower = query.toLowerCase().trim();
     let bestMatch = { content: "", score: 0 };
     
-    // Fallback answer with general information
     const fallbackAnswer = `Não encontrei uma resposta exata para sua pergunta. O Renda Online Fácil é uma plataforma educacional focada em ensinar como gerar renda em Moçambique através de:
 - **Marketing de Afiliados:** Ganhe comissões divulgando produtos.
 - **Importação da China:** Compre produtos baratos para revender com lucro.
@@ -25,7 +24,6 @@ function findRelevantKnowledge(query: string): string {
 Você pode perguntar sobre qualquer um desses tópicos!`;
 
     if (!queryLower) {
-        // Find greeting if query is empty or just a greeting
         const greeting = KNOWLEDGE_BASE.find(item => item.keywords.includes("oi"));
         return greeting ? greeting.answer : fallbackAnswer;
     }
@@ -37,14 +35,18 @@ Você pode perguntar sobre qualquer um desses tópicos!`;
         // Score based on keyword matches
         keywords.forEach(keyword => {
             if (queryLower.includes(keyword)) {
-                currentScore++;
+                // More points for longer keyword matches
+                currentScore += keyword.length;
             }
         });
         
         // Higher score for more specific matches
         const queryWords = new Set(queryLower.split(/\s+/));
-        const matchingKeywords = keywords.filter(kw => queryWords.has(kw));
-        currentScore += matchingKeywords.length * 2;
+        const matchingKeywords = keywords.filter(kw => {
+            const kwWords = kw.split(/\s+/);
+            return kwWords.every(word => queryWords.has(word));
+        });
+        currentScore += matchingKeywords.length * 5; // Give a significant boost for exact keyword phrase matches
 
 
         if (currentScore > bestMatch.score) {
@@ -52,7 +54,9 @@ Você pode perguntar sobre qualquer um desses tópicos!`;
         }
     });
 
-    if (bestMatch.score > 0) { // Require a minimum score to be considered relevant
+    // A low score might mean a very weak match, so we fallback.
+    // Adjust this threshold as needed.
+    if (bestMatch.score > 2) { 
         return bestMatch.content;
     }
 
@@ -75,21 +79,3 @@ export async function askConsultant(input: IaConsultantInput): Promise<IaConsult
   const answer = findRelevantKnowledge(input.question);
   return { answer };
 }
-
-// NOTE: The Genkit flow and prompt definitions below are no longer used in the askConsultant function.
-// They are kept here for potential future use if you decide to re-enable the external AI model.
-// To re-enable, you would need to restore the `iaConsultantFlow` call inside `askConsultant`.
-
-import { ai } from '@/ai/genkit';
-
-const iaConsultantFlow = ai.defineFlow(
-  {
-    name: 'iaConsultantFlow',
-    inputSchema: IaConsultantInputSchema,
-    outputSchema: IaConsultantOutputSchema,
-  },
-  async (input) => {
-    const answer = findRelevantKnowledge(input.question);
-    return { answer };
-  }
-);
