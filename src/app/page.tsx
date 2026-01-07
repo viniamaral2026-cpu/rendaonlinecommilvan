@@ -171,7 +171,7 @@ export default function HomePage() {
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Importação da China</h3>
                 <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">Aprenda a trazer produtos baratos para revender em Moçambique com alta margem.</p>
                 <div className="text-xs font-bold text-gray-500 mt-auto pt-4 border-t border-gray-200/50">
-                    <span className="text-green-600">★ </span><span className="italic">Chega <span className="animate-pulse ml-1 text-green-500">|</span></span>
+                    <span className="text-green-600">★ </span><span className="italic">Chega Rápido<span className="animate-pulse ml-1 text-green-500">|</span></span>
                 </div>
             </div>
             <div className="p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow bg-purple-50 flex flex-col h-full">
@@ -191,7 +191,7 @@ export default function HomePage() {
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Investimentos Digitais</h3>
                 <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">Aplicativos que pagam de verdade e plataformas de investimento seguras.</p>
                 <div className="text-xs font-bold text-gray-500 mt-auto pt-4 border-t border-gray-200/50">
-                    <span className="text-green-600">★ </span><span className="italic">Apps C<span className="animate-pulse ml-1 text-green-500">|</span></span>
+                    <span className="text-green-600">★ </span><span className="italic">Apps Confiáveis<span className="animate-pulse ml-1 text-green-500">|</span></span>
                 </div>
             </div>
           </div>
@@ -211,7 +211,7 @@ export default function HomePage() {
 
 
       {/* Digital Products Section */}
-       <section className="py-16 bg-background">
+       <section id="products" className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Produtos Digitais</h2>
@@ -231,7 +231,7 @@ export default function HomePage() {
                 <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-3 pointer-events-none">
                   <div className="text-white text-xs font-bold flex items-center">
                     <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse mr-2"></span>
-                    <span className="text-shadow">Mais<span className="animate-pulse ml-1 text-green-500">|</span></span>
+                    <span className="text-shadow">Mais Vendido<span className="animate-pulse ml-1 text-green-500">|</span></span>
                   </div>
                 </div>
               </div>
@@ -267,7 +267,7 @@ export default function HomePage() {
                 <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-3 pointer-events-none">
                   <div className="text-white text-xs font-bold flex items-center">
                     <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse mr-2"></span>
-                    <span className="text-shadow">Certificado I<span className="animate-pulse ml-1 text-green-500">|</span></span>
+                    <span className="text-shadow">Certificado Incluso<span className="animate-pulse ml-1 text-green-500">|</span></span>
                   </div>
                 </div>
               </div>
