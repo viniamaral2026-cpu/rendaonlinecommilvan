@@ -36,7 +36,7 @@ export default function IAConsultantPage() {
     {
       id: 1,
       role: 'assistant',
-      text: 'Olá! Eu sou o Milvan, seu consultor de renda online. Como posso te ajudar a ganhar dinheiro hoje?',
+      text: 'Olá! Sou Milvan, seu consultor de IA. Estou pronto para te ajudar a encontrar as melhores estratégias para gerar renda online. Pode perguntar!',
     },
   ]);
   const [input, setInput] = useState('');
@@ -112,10 +112,10 @@ function ChatMessages({ messages }: { messages: Message[] }) {
 
     useEffect(() => {
         if (scrollAreaRef.current) {
-            scrollAreaRef.current.scrollTo({
-                top: scrollAreaRef.current.scrollHeight,
-                behavior: 'smooth'
-            });
+            const viewport = scrollAreaRef.current.querySelector('div');
+            if (viewport) {
+                viewport.scrollTo({ top: viewport.scrollHeight, behavior: 'smooth' });
+            }
         }
     }, [messages]);
 

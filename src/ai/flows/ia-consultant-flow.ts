@@ -24,8 +24,8 @@ function findRelevantKnowledge(query: string): string {
 - **Investimentos Digitais:** Conheça oportunidades seguras.
 Você pode perguntar sobre qualquer um desses tópicos!`;
 
-    if (!query) {
-        // Find greeting if query is empty
+    if (!queryLower) {
+        // Find greeting if query is empty or just a greeting
         const greeting = KNOWLEDGE_BASE.find(item => item.keywords.includes("oi"));
         return greeting ? greeting.answer : fallbackAnswer;
     }
