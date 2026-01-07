@@ -200,13 +200,11 @@ export default function HomePage() {
        {/* Affiliate CTA */}
       <section className="py-16">
         <div className="container mx-auto px-4 text-center">
-          <Card className="max-w-3xl mx-auto p-8 bg-muted/50 border-0">
-             <h2 className="text-3xl font-bold mb-4">Torne-se um Afiliado de Sucesso</h2>
-             <p className="text-muted-foreground mb-8">
-               Nós fornecemos os links, os criativos e as estratégias. Você só precisa divulgar e ganhar.
-             </p>
-             <Button size="lg">Quero Meus Links de Afiliado</Button>
-          </Card>
+            <div className="mt-12 bg-gray-50 rounded-2xl p-8 text-center border border-gray-200">
+                <h3 className="text-2xl font-bold text-gray-800 mb-4">Torne-se um Afiliado de Sucesso</h3>
+                <p className="text-gray-600 max-w-2xl mx-auto mb-6">Nós fornecemos os links, os criativos e as estratégias. Você só precisa divulgar e ganhar.</p>
+                <a href="#contact" className="inline-block bg-green-600 text-white font-bold py-3 px-8 rounded-full hover:bg-green-700 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1">Quero Meus Links de Afiliado</a>
+            </div>
         </div>
       </section>
 
