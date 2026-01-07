@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Star, ShoppingCart, ArrowRight, Share2, Package, ShoppingBag, BarChart, Rocket } from "lucide-react";
+import { Star, ShoppingCart, ArrowRight, Share2, Package, Globe, BarChart, Rocket } from "lucide-react";
 import { TUTORIALS, AFFILIATE_PRODUCTS as DIGITAL_PRODUCTS } from "@/lib/data";
 
 const CATEGORIES = [
@@ -13,32 +13,40 @@ const CATEGORIES = [
     title: "Marketing de Afiliados",
     description: "Ganhe comissões indicando produtos de terceiros. Sem estoque, sem burocracia.",
     link: "/#",
-    iconBgColor: "bg-blue-100 dark:bg-blue-900/50",
-    iconTextColor: "text-blue-500",
+    bgColor: "bg-blue-50 dark:bg-blue-900/20",
+    iconColor: "text-blue-500",
+    footerText: "Comissões Altas",
+    footerIconColor: "text-green-500 fill-green-500",
   },
   {
     icon: Package,
     title: "Importação da China",
-    description: "Aprenda a buscar produtos inovadores e com margens de lucro surpreendentes.",
+    description: "Aprenda a trazer produtos baratos para revender em Moçambique com alta margem.",
     link: "/#",
-    iconBgColor: "bg-orange-100 dark:bg-orange-900/50",
-    iconTextColor: "text-orange-500",
+    bgColor: "bg-orange-50 dark:bg-orange-900/20",
+    iconColor: "text-orange-500",
+    footerText: "Cheg",
+    footerIconColor: "text-green-500 fill-green-500",
   },
   {
-    icon: ShoppingBag,
+    icon: Globe,
     title: "Vendas Online",
-    description: "Crie sua loja ou WhatsApp/Facebook para vender para todo o país, 24h por dia.",
+    description: "Como usar o WhatsApp e Facebook Ads para escalar suas vendas rapidamente.",
     link: "/#",
-    iconBgColor: "bg-purple-100 dark:bg-purple-900/50",
-    iconTextColor: "text-purple-500",
+    bgColor: "bg-purple-50 dark:bg-purple-900/20",
+    iconColor: "text-purple-500",
+    footerText: "WhatsApp",
+    footerIconColor: "text-green-500 fill-green-500",
   },
   {
     icon: BarChart,
     title: "Investimentos Digitais",
-    description: "Explore o mundo das criptomoedas, ações e outras formas de fazer seu dinheiro render.",
+    description: "Aplicativos que pagam de verdade e plataformas de investimento seguras.",
     link: "/investimentos",
-    iconBgColor: "bg-green-100 dark:bg-green-900/50",
-    iconTextColor: "text-green-500",
+    bgColor: "bg-green-50 dark:bg-green-900/20",
+    iconColor: "text-green-500",
+    footerText: "Apps Confiáveis",
+    footerIconColor: "text-green-500 fill-green-500",
   },
 ];
 
@@ -92,20 +100,20 @@ export default function HomePage() {
           <div className="inline-block w-20 h-1 bg-primary mt-2 mb-12 rounded-full"></div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {CATEGORIES.map((category) => (
-              <Card key={category.title} className="text-left hover:shadow-lg transition-shadow bg-muted/30">
+              <Card key={category.title} className={`text-left hover:shadow-lg transition-shadow border-none ${category.bgColor}`}>
                 <CardHeader>
-                  <div className={`rounded-lg w-12 h-12 flex items-center justify-center mb-4 ${category.iconBgColor}`}>
-                    <category.icon className={`w-6 h-6 ${category.iconTextColor}`} />
+                   <div className="rounded-lg w-full p-3 flex items-center justify-start bg-white/60 mb-4">
+                    <category.icon className={`w-6 h-6 ${category.iconColor}`} />
                   </div>
                   <CardTitle>{category.title}</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="pt-0">
                   <p className="text-muted-foreground text-sm">{category.description}</p>
                 </CardContent>
                 <CardFooter>
                    <div className="flex items-center text-sm text-muted-foreground">
-                      <Star className="w-4 h-4 mr-2 text-yellow-400 fill-yellow-400" />
-                      <span className="font-semibold">Vend</span>
+                      <Star className={`w-4 h-4 mr-2 ${category.footerIconColor}`} />
+                      <span className="font-semibold">{category.footerText}</span>
                    </div>
                 </CardFooter>
               </Card>
