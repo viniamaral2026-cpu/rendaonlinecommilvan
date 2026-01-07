@@ -60,35 +60,89 @@ export default function HomePage() {
   return (
     <div className="animate-fade-in">
       {/* Hero Section */}
-      <section className="bg-muted/50 py-20 lg:py-32">
-        <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-             <span className="inline-block py-1 px-3 rounded-full bg-green-100 text-green-700 text-sm font-semibold mb-6 shadow-sm border border-green-200">🚀 Aprenda com Milvan</span>
-             <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-6 h-32 md:h-auto">Transforme seu tempo em <br className="md:hidden" /><span className="text-green-600 drop-shadow-sm"><span className="">Sucesso Dig<span className="animate-pulse ml-1 text-green-500">|</span></span></span></h1>
-            <p className="text-lg text-muted-foreground">
-              Bem-vindo ao Renda Online Fácil. A plataforma completa para você dominar o Marketing de Afiliados, Importação e Vendas Online. O método prático para quem quer resultados.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" asChild>
-                <Link href="/#">Ver Aulas Premium <ArrowRight className="ml-2" /></Link>
-              </Button>
-              <Button size="lg" variant="outline">
-                Fale Comigo
-              </Button>
+      <section id="home" className="relative bg-gradient-to-br from-green-50 to-emerald-100 py-20 lg:py-32 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div className="mb-12 lg:mb-0 relative z-10">
+                    <span className="inline-block py-1 px-3 rounded-full bg-green-100 text-green-700 text-sm font-semibold mb-6 shadow-sm border border-green-200">🚀 Aprenda com Milvan</span>
+                    <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-6 h-32 md:h-auto">Transforme seu tempo em <br className="md:hidden" /><span className="text-green-600 drop-shadow-sm"><span className="">Sucesso Digital<span className="animate-pulse ml-1 text-green-500">|</span></span></span></h1>
+                    <p className="text-lg text-gray-600 mb-8 leading-relaxed">Bem-vindo ao <strong>Renda Online Fácil</strong>. A plataforma completa para você dominar o Marketing de Afiliados, Importação e Vendas Online. O método prático para quem quer resultados.</p>
+                    <div className="flex flex-col sm:flex-row gap-4">
+                        <a href="#tutorials" className="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-green-600 hover:bg-green-700 shadow-lg shadow-green-300 transition-all hover:-translate-y-1 active:scale-95">Ver Aulas Premium<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right ml-2 h-5 w-5" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+                        <a href="#contact" className="inline-flex justify-center items-center px-6 py-3 border-2 border-green-600 text-base font-medium rounded-full text-green-700 bg-transparent hover:bg-green-50 transition-colors">Fale Comigo</a>
+                    </div>
+                </div>
+                <div className="relative flex justify-center items-center h-[400px] w-full">
+                    <div className="absolute inset-0 bg-green-400 blur-[100px] opacity-20 rounded-full animate-pulse"></div>
+                    <div className="relative z-20 bg-white p-6 rounded-[2.5rem] shadow-2xl border-8 border-gray-100 w-64 md:w-72 animate-float">
+                        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-6 bg-gray-100 rounded-b-xl"></div>
+                        <div className="flex justify-between items-center mb-6 mt-4">
+                            <div className="h-2 w-8 bg-gray-200 rounded-full"></div>
+                            <div className="h-2 w-4 bg-green-400 rounded-full"></div>
+                        </div>
+                        <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl p-4 text-white shadow-lg mb-6 transform transition-transform hover:scale-105 cursor-default">
+                            <div className="flex justify-between items-start mb-2">
+                                <span className="text-xs opacity-80">Saldo Disponível</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-dollar-sign h-4 w-4 opacity-80" aria-hidden="true"><line x1="12" x2="12" y1="2" y2="22"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                            </div>
+                            <div className="text-2xl font-bold">50.000 MT</div>
+                            <div className="mt-2 text-xs bg-white/20 inline-block px-2 py-0.5 rounded flex items-center w-fit">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-trending-up h-3 w-3 mr-1" aria-hidden="true"><path d="M16 7h6v6"></path><path d="m22 7-8.5 8.5-5-5L2 17"></path></svg> +12% hoje
+                            </div>
+                        </div>
+                        <div className="space-y-3">
+                            <div className="flex items-center p-3 bg-gray-50 rounded-xl border border-gray-100 shadow-sm animate-pulse">
+                                <div className="bg-green-100 p-2 rounded-full mr-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-dollar-sign h-4 w-4 text-green-600" aria-hidden="true"><line x1="12" x2="12" y1="2" y2="22"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                                </div>
+                                <div>
+                                    <div className="text-xs font-bold text-gray-800">Venda Realizada</div>
+                                    <div className="text-[10px] text-gray-500">Há 2 minutos</div>
+                                </div>
+                                <div className="ml-auto text-xs font-bold text-green-600">+850 MT</div>
+                            </div>
+                            <div className="flex items-center p-3 bg-gray-50 rounded-xl border border-gray-100 shadow-sm opacity-70">
+                                <div className="bg-blue-100 p-2 rounded-full mr-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-smartphone h-4 w-4 text-blue-600" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>
+                                </div>
+                                <div>
+                                    <div className="text-xs font-bold text-gray-800">Novo Afiliado</div>
+                                    <div className="text-[10px] text-gray-500">Há 15 minutos</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="mt-6 bg-gray-900 text-white py-3 rounded-xl text-center text-sm font-bold shadow-lg">Sacar Agora</div>
+                    </div>
+                    <div className="absolute top-0 right-0 md:right-10 bg-white p-3 rounded-2xl shadow-xl border border-green-50 animate-float-delayed z-30">
+                        <div className="flex items-center gap-2">
+                            <div className="bg-red-100 p-1.5 rounded-full relative">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-bell h-5 w-5 text-red-500" aria-hidden="true"><path d="M10.268 21a2 2 0 0 0 3.464 0"></path><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"></path></svg>
+                                <span className="absolute -top-1 -right-1 h-3 w-3 bg-red-500 rounded-full border-2 border-white"></span>
+                            </div>
+                            <div>
+                                <p className="text-xs font-bold text-gray-800">Pagamento</p>
+                                <p className="text-[10px] text-gray-500">M-Pesa Recebido</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="absolute bottom-10 left-0 md:left-10 bg-white p-3 rounded-2xl shadow-xl border border-blue-50 animate-float-slow z-30">
+                        <div className="flex items-center gap-2">
+                            <div className="bg-blue-100 p-1.5 rounded-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shield-check h-5 w-5 text-blue-600" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                            </div>
+                            <div>
+                                <p className="text-xs font-bold text-gray-800">100% Seguro</p>
+                                <p className="text-[10px] text-gray-500">Método Comprovado</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="absolute top-10 left-10 h-16 w-16 bg-yellow-300 rounded-full blur-xl opacity-30 animate-pulse"></div>
+                    <div className="absolute bottom-20 right-20 h-24 w-24 bg-green-500 rounded-full blur-2xl opacity-20"></div>
+                </div>
             </div>
-          </div>
-          <div className="hidden lg:block">
-            <Image
-              src="https://picsum.photos/seed/mobile-app-screenshot/600/500"
-              alt="App Screenshot"
-              width={600}
-              height={500}
-              className="rounded-xl shadow-2xl"
-              data-ai-hint="mobile app interface finance"
-            />
-          </div>
         </div>
       </section>
+      
 
       {/* Categories Section */}
       <section className="py-16 bg-background">
