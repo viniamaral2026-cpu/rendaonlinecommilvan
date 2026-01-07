@@ -135,7 +135,7 @@ Ganhos variam de acordo com esforço, dedicação, estratégia e contexto indivi
 
 ## 👨‍💻 Desenvolvimento
 
-Desenvolvido com ❤️ por **Suprema Sites Express**  
+
 Projeto institucional / educacional
 
 © 2026 – Renda Online Fácil – Humorista Milvan  
