@@ -65,7 +65,7 @@ export default function HomePage() {
             <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
                 <div className="mb-12 lg:mb-0 relative z-10">
                     <span className="inline-block py-1 px-3 rounded-full bg-green-100 text-green-700 text-sm font-semibold mb-6 shadow-sm border border-green-200">🚀 Aprenda com Milvan</span>
-                    <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-6 h-32 md:h-auto">Transforme seu tempo em <br className="md:hidden" /><span className="text-green-600 drop-shadow-sm">Sucesso Digital<span className="animate-pulse ml-1 text-green-500">|</span></span></h1>
+                    <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-6 h-32 md:h-auto">Transforme seu tempo em <br className="md:hidden" /><span className="text-green-600 drop-shadow-sm"><span className="">Sucesso Digital<span className="animate-pulse ml-1 text-green-500">|</span></span></span></h1>
                     <p className="text-lg text-gray-600 mb-8 leading-relaxed">Bem-vindo ao <strong>Renda Online Fácil</strong>. A plataforma completa para você dominar o Marketing de Afiliados, Importação e Vendas Online. O método prático para quem quer resultados.</p>
                     <div className="flex flex-col sm:flex-row gap-4">
                         <a href="#tutorials" className="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-green-600 hover:bg-green-700 shadow-lg shadow-green-300 transition-all hover:-translate-y-1 active:scale-95">Ver Aulas Premium<ArrowRight className="ml-2 h-5 w-5" /></a>
@@ -198,7 +198,7 @@ export default function HomePage() {
       </section>
 
        {/* Affiliate CTA */}
-      <section className="py-16">
+       <section className="py-16">
         <div className="container mx-auto px-4 text-center">
             <div className="mt-12 bg-gray-50 rounded-2xl p-8 text-center border border-gray-200">
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">Torne-se um Afiliado de Sucesso</h3>
@@ -210,48 +210,122 @@ export default function HomePage() {
 
 
       {/* Digital Products Section */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold">Produtos Digitais</h2>
-            <p className="text-muted-foreground mt-2">eBooks e Cursos selecionados para acelerar seus resultados.</p>
-             <div className="inline-block w-20 h-1 bg-primary mt-4 rounded-full"></div>
+       <section className="py-16 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Produtos Digitais</h2>
+            <p className="text-lg max-w-2xl mx-auto text-gray-600">eBooks e Cursos selecionados para acelerar seus resultados.</p>
+            <div className="h-1 w-24 mx-auto mt-6 rounded-full bg-green-600"></div>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {DIGITAL_PRODUCTS.map((product) => (
-              <Card key={product.id} className="overflow-hidden group flex flex-col">
-                <div className="relative">
-                  <Image src={product.imageUrl} alt={product.name} width={600} height={400} className="object-cover w-full h-48 group-hover:scale-105 transition-transform" data-ai-hint={product.imageHint} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                   <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground">
-                    {product.type}
-                  </Badge>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 border border-gray-100 flex flex-col group">
+              <div className="relative h-48 overflow-hidden">
+                <Image alt="Guia Definitivo do Marketing Digital" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" src="https://picsum.photos/seed/book1/600/400" width={600} height={400} />
+                <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-xs font-bold text-green-700 shadow-sm uppercase tracking-wider z-10">ebook</div>
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <button className="bg-white text-gray-900 px-6 py-2 rounded-full font-bold flex items-center gap-2 hover:bg-green-50 transition-colors transform translate-y-4 group-hover:translate-y-0 duration-300">
+                    <Eye className="h-4 w-4" />Espiar
+                  </button>
                 </div>
-                <CardHeader className="p-6 pb-2">
-                  <CardTitle className="text-xl mb-2">{product.name}</CardTitle>
-                </CardHeader>
-                <CardContent className="p-6 pt-0 flex-grow">
-                  <CardDescription className="text-sm line-clamp-2">{product.description}</CardDescription>
-                  <div className="flex items-center mt-4">
-                    <div className="flex text-yellow-400">
-                      {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-current" />)}
-                    </div>
-                    <span className="text-sm text-muted-foreground ml-2">{product.reviewCount} reviews</span>
+                <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-3 pointer-events-none">
+                  <div className="text-white text-xs font-bold flex items-center">
+                    <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse mr-2"></span>
+                    <span className="text-shadow">Mais<span className="animate-pulse ml-1 text-green-500">|</span></span>
                   </div>
-                </CardContent>
-                <CardFooter className="px-6 pb-6 mt-auto bg-slate-50 dark:bg-slate-800/50">
-                  <div className="w-full">
-                    <div className="flex justify-between items-center">
-                       <span className="text-2xl font-bold text-destructive">{product.price.toFixed(2)} MT</span>
-                      <Button>
-                        <Download className="w-4 h-4 mr-2" />
-                        Comprar Agora
-                      </Button>
-                    </div>
+                </div>
+              </div>
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2" title="Guia Definitivo do Marketing Digital">Guia Definitivo do Marketing Digital</h3>
+                <p className="text-gray-600 text-sm mb-4 h-10 line-clamp-2">Aprenda do zero como montar sua estrutura de vendas online. Estratégias de tráfego pago e orgânico.</p>
+                <div className="flex items-center mb-6">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />)}
+                  <span className="text-xs text-gray-400 ml-2">(4.9)</span>
+                </div>
+                <div className="flex items-center justify-between mt-auto gap-3">
+                  <span className="text-2xl font-bold text-green-700">250 MT</span>
+                  <div className="flex gap-2">
+                    <button className="p-2 rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors md:hidden" aria-label="Ver detalhes">
+                      <Eye className="h-5 w-5" />
+                    </button>
+                    <button className="bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-800 transition-colors flex items-center gap-2">
+                      <Download className="h-4 w-4" />Comprar
+                    </button>
                   </div>
-                </CardFooter>
-              </Card>
-            ))}
+                </div>
+              </div>
+            </div>
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 border border-gray-100 flex flex-col group">
+              <div className="relative h-48 overflow-hidden">
+                <Image alt="Mestre da Importação China-Moçambique" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" src="https://picsum.photos/seed/course1/600/400" width={600} height={400} />
+                <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-xs font-bold text-green-700 shadow-sm uppercase tracking-wider z-10">course</div>
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <button className="bg-white text-gray-900 px-6 py-2 rounded-full font-bold flex items-center gap-2 hover:bg-green-50 transition-colors transform translate-y-4 group-hover:translate-y-0 duration-300">
+                    <Eye className="h-4 w-4" />Espiar
+                  </button>
+                </div>
+                <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-3 pointer-events-none">
+                  <div className="text-white text-xs font-bold flex items-center">
+                    <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse mr-2"></span>
+                    <span className="text-shadow">Certificado I<span className="animate-pulse ml-1 text-green-500">|</span></span>
+                  </div>
+                </div>
+              </div>
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2" title="Mestre da Importação China-Moçambique">Mestre da Importação China-Moçambique</h3>
+                <p className="text-gray-600 text-sm mb-4 h-10 line-clamp-2">Lista de fornecedores confiáveis, logística e métodos de envio seguros para maximizar seus lucros.</p>
+                <div className="flex items-center mb-6">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />)}
+                  <span className="text-xs text-gray-400 ml-2">(4.9)</span>
+                </div>
+                <div className="flex items-center justify-between mt-auto gap-3">
+                  <span className="text-2xl font-bold text-green-700">500 MT</span>
+                  <div className="flex gap-2">
+                    <button className="p-2 rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors md:hidden" aria-label="Ver detalhes">
+                      <Eye className="h-5 w-5" />
+                    </button>
+                    <button className="bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-800 transition-colors flex items-center gap-2">
+                      <Download className="h-4 w-4" />Comprar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 border border-gray-100 flex flex-col group">
+              <div className="relative h-48 overflow-hidden">
+                <Image alt="Copywriting para WhatsApp" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" src="https://picsum.photos/seed/book2/600/400" width={600} height={400}/>
+                <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-xs font-bold text-green-700 shadow-sm uppercase tracking-wider z-10">ebook</div>
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <button className="bg-white text-gray-900 px-6 py-2 rounded-full font-bold flex items-center gap-2 hover:bg-green-50 transition-colors transform translate-y-4 group-hover:translate-y-0 duration-300">
+                    <Eye className="h-4 w-4" />Espiar
+                  </button>
+                </div>
+                <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-3 pointer-events-none">
+                  <div className="text-white text-xs font-bold flex items-center">
+                    <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse mr-2"></span>
+                    <span className="text-shadow">Scripts Prontos<span className="animate-pulse ml-1 text-green-500">|</span></span>
+                  </div>
+                </div>
+              </div>
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2" title="Copywriting para WhatsApp">Copywriting para WhatsApp</h3>
+                <p className="text-gray-600 text-sm mb-4 h-10 line-clamp-2">Textos que vendem: scripts prontos para fechar vendas no x1. Gatilhos mentais e quebra de objeções.</p>
+                <div className="flex items-center mb-6">
+                   {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />)}
+                  <span className="text-xs text-gray-400 ml-2">(4.9)</span>
+                </div>
+                <div className="flex items-center justify-between mt-auto gap-3">
+                  <span className="text-2xl font-bold text-green-700">150 MT</span>
+                  <div className="flex gap-2">
+                    <button className="p-2 rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors md:hidden" aria-label="Ver detalhes">
+                      <Eye className="h-5 w-5" />
+                    </button>
+                    <button className="bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-800 transition-colors flex items-center gap-2">
+                      <Download className="h-4 w-4" />Comprar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -360,3 +434,5 @@ export default function HomePage() {
     </div>
   );
 }
+
+    
