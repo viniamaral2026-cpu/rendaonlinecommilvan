@@ -51,7 +51,7 @@ Você pode perguntar sobre qualquer um desses tópicos!`;
         }
     });
 
-    if (bestMatch.score > 1) { // Require a minimum score to be considered relevant
+    if (bestMatch.score > 0) { // Require a minimum score to be considered relevant
         return bestMatch.content;
     }
 

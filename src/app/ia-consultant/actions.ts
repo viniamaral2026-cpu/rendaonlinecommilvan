@@ -8,7 +8,7 @@ import {
 import { z } from 'zod';
 
 const schema = z.object({
-  question: z.string().min(5, 'Por favor, faça uma pergunta mais detalhada.'),
+  question: z.string().min(2, 'Por favor, faça uma pergunta mais detalhada.'),
 });
 
 type State = {
