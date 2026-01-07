@@ -1,4 +1,3 @@
-
 'use client';
 import Image from "next/image";
 import Link from "next/link";
@@ -9,6 +8,8 @@ import { Star, ArrowRight, Share2, Package, Globe, BarChart, Rocket, Eye, Award,
 import { TUTORIALS, AFFILIATE_PRODUCTS as DIGITAL_PRODUCTS } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
+import { TypingAnimation } from "@/components/typing-animation";
+
 
 const CATEGORIES = [
   {
@@ -18,7 +19,7 @@ const CATEGORIES = [
     link: "/#",
     bgColor: "bg-blue-50 dark:bg-blue-900/20",
     iconColor: "text-blue-500",
-    footerText: "Comissões Altas",
+    phrases: ["Comissões Altas", "Zero Estoque", "Venda no Automático"],
   },
   {
     icon: ShoppingBag,
@@ -27,7 +28,7 @@ const CATEGORIES = [
     link: "/#",
     bgColor: "bg-orange-50 dark:bg-orange-900/20",
     iconColor: "text-orange-500",
-    footerText: "Chega",
+    phrases: ["Lucro de 300%", "Produtos Baratos", "Chega Rápido"],
   },
   {
     icon: Globe,
@@ -36,7 +37,7 @@ const CATEGORIES = [
     link: "/#",
     bgColor: "bg-purple-50 dark:bg-purple-900/20",
     iconColor: "text-purple-500",
-    footerText: "Venda Todo Dia",
+    phrases: ["Venda Todo Dia", "WhatsApp Milionário", "Ads que Convertem"],
   },
   {
     icon: TrendingUp,
@@ -45,7 +46,7 @@ const CATEGORIES = [
     link: "/investimentos",
     bgColor: "bg-green-50 dark:bg-green-900/20",
     iconColor: "text-green-500",
-    footerText: "Apps Confiáveis",
+    phrases: ["Renda Passiva", "Apps Confiáveis", "Saque via M-Pesa"],
   },
 ];
 
@@ -154,46 +155,19 @@ export default function HomePage() {
           </p>
           <div className="inline-block w-20 h-1 bg-primary mt-2 mb-12 rounded-full"></div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow bg-blue-50 flex flex-col h-full">
+            {CATEGORIES.map((category, index) => (
+              <div key={index} className={cn("p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full", category.bgColor)}>
                 <div className="mb-4 bg-white p-3 inline-block rounded-lg shadow-sm">
-                    <Share2 className="h-10 w-10 text-blue-500" />
+                  <category.icon className={cn("h-10 w-10", category.iconColor)} />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Marketing de Afiliados</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">Ganhe comissões indicando produtos de terceiros. Sem estoque, sem burocracia.</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{category.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">{category.description}</p>
                 <div className="text-xs font-bold text-gray-500 mt-auto pt-4 border-t border-gray-200/50">
-                    <span className="text-green-600">★ </span><span className="italic">Comissões Altas<span className="animate-pulse ml-1 text-green-500">|</span></span>
+                  <span className="text-green-600">★ </span>
+                  <TypingAnimation phrases={category.phrases} typingSpeed={80} delay={1800} className="italic" />
                 </div>
-            </div>
-            <div className="p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow bg-orange-50 flex flex-col h-full">
-                <div className="mb-4 bg-white p-3 inline-block rounded-lg shadow-sm">
-                    <ShoppingBag className="h-10 w-10 text-orange-500" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Importação da China</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">Aprenda a trazer produtos baratos para revender em Moçambique com alta margem.</p>
-                <div className="text-xs font-bold text-gray-500 mt-auto pt-4 border-t border-gray-200/50">
-                    <span className="text-green-600">★ </span><span className="italic">Chega Rápido<span className="animate-pulse ml-1 text-green-500">|</span></span>
-                </div>
-            </div>
-            <div className="p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow bg-purple-50 flex flex-col h-full">
-                <div className="mb-4 bg-white p-3 inline-block rounded-lg shadow-sm">
-                    <Globe className="h-10 w-10 text-purple-500" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Vendas Online</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">Como usar o WhatsApp e Facebook Ads para escalar suas vendas rapidamente.</p>
-                <div className="text-xs font-bold text-gray-500 mt-auto pt-4 border-t border-gray-200/50">
-                    <span className="text-green-600">★ </span><span className="italic">Venda Todo Dia<span className="animate-pulse ml-1 text-green-500">|</span></span>
-                </div>
-            </div>
-            <div className="p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow bg-green-50 flex flex-col h-full">
-                <div className="mb-4 bg-white p-3 inline-block rounded-lg shadow-sm">
-                    <TrendingUp className="h-10 w-10 text-green-500" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Investimentos Digitais</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">Aplicativos que pagam de verdade e plataformas de investimento seguras.</p>
-                <div className="text-xs font-bold text-gray-500 mt-auto pt-4 border-t border-gray-200/50">
-                    <span className="text-green-600">★ </span><span className="italic">Apps Confiáveis<span className="animate-pulse ml-1 text-green-500">|</span></span>
-                </div>
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -441,9 +415,3 @@ export default function HomePage() {
     </div>
   );
 }
-
-    
-
-    
-
-    
