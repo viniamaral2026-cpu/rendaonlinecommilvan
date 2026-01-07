@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Star, ArrowRight, Share2, Package, Globe, BarChart, Rocket, Eye, Award, Download, Lock, PlayCircle, Sparkles, Send, Phone, MessageCircle } from "lucide-react";
+import { Star, ArrowRight, Share2, Package, Globe, BarChart, Rocket, Eye, Award, Download, Lock, PlayCircle, Sparkles, Send, Phone, MessageCircle, DollarSign, TrendingUp, Smartphone, Bell, ShieldCheck } from "lucide-react";
 import { TUTORIALS, AFFILIATE_PRODUCTS as DIGITAL_PRODUCTS } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
@@ -68,7 +68,7 @@ export default function HomePage() {
                     <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-6 h-32 md:h-auto">Transforme seu tempo em <br className="md:hidden" /><span className="text-green-600 drop-shadow-sm"><span className="">Sucesso Digital<span className="animate-pulse ml-1 text-green-500">|</span></span></span></h1>
                     <p className="text-lg text-gray-600 mb-8 leading-relaxed">Bem-vindo ao <strong>Renda Online Fácil</strong>. A plataforma completa para você dominar o Marketing de Afiliados, Importação e Vendas Online. O método prático para quem quer resultados.</p>
                     <div className="flex flex-col sm:flex-row gap-4">
-                        <a href="#tutorials" className="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-green-600 hover:bg-green-700 shadow-lg shadow-green-300 transition-all hover:-translate-y-1 active:scale-95">Ver Aulas Premium<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right ml-2 h-5 w-5" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+                        <a href="#tutorials" className="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-green-600 hover:bg-green-700 shadow-lg shadow-green-300 transition-all hover:-translate-y-1 active:scale-95">Ver Aulas Premium<ArrowRight className="ml-2 h-5 w-5" /></a>
                         <a href="#contact" className="inline-flex justify-center items-center px-6 py-3 border-2 border-green-600 text-base font-medium rounded-full text-green-700 bg-transparent hover:bg-green-50 transition-colors">Fale Comigo</a>
                     </div>
                 </div>
@@ -83,17 +83,17 @@ export default function HomePage() {
                         <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl p-4 text-white shadow-lg mb-6 transform transition-transform hover:scale-105 cursor-default">
                             <div className="flex justify-between items-start mb-2">
                                 <span className="text-xs opacity-80">Saldo Disponível</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-dollar-sign h-4 w-4 opacity-80" aria-hidden="true"><line x1="12" x2="12" y1="2" y2="22"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                                <DollarSign className="h-4 w-4 opacity-80" />
                             </div>
                             <div className="text-2xl font-bold">50.000 MT</div>
                             <div className="mt-2 text-xs bg-white/20 inline-block px-2 py-0.5 rounded flex items-center w-fit">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-trending-up h-3 w-3 mr-1" aria-hidden="true"><path d="M16 7h6v6"></path><path d="m22 7-8.5 8.5-5-5L2 17"></path></svg> +12% hoje
+                                <TrendingUp className="h-3 w-3 mr-1" /> +12% hoje
                             </div>
                         </div>
                         <div className="space-y-3">
                             <div className="flex items-center p-3 bg-gray-50 rounded-xl border border-gray-100 shadow-sm animate-pulse">
                                 <div className="bg-green-100 p-2 rounded-full mr-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-dollar-sign h-4 w-4 text-green-600" aria-hidden="true"><line x1="12" x2="12" y1="2" y2="22"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                                    <DollarSign className="h-4 w-4 text-green-600" />
                                 </div>
                                 <div>
                                     <div className="text-xs font-bold text-gray-800">Venda Realizada</div>
@@ -103,7 +103,7 @@ export default function HomePage() {
                             </div>
                             <div className="flex items-center p-3 bg-gray-50 rounded-xl border border-gray-100 shadow-sm opacity-70">
                                 <div className="bg-blue-100 p-2 rounded-full mr-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-smartphone h-4 w-4 text-blue-600" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>
+                                    <Smartphone className="h-4 w-4 text-blue-600" />
                                 </div>
                                 <div>
                                     <div className="text-xs font-bold text-gray-800">Novo Afiliado</div>
@@ -116,7 +116,7 @@ export default function HomePage() {
                     <div className="absolute top-0 right-0 md:right-10 bg-white p-3 rounded-2xl shadow-xl border border-green-50 animate-float-delayed z-30">
                         <div className="flex items-center gap-2">
                             <div className="bg-red-100 p-1.5 rounded-full relative">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-bell h-5 w-5 text-red-500" aria-hidden="true"><path d="M10.268 21a2 2 0 0 0 3.464 0"></path><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"></path></svg>
+                                <Bell className="h-5 w-5 text-red-500" />
                                 <span className="absolute -top-1 -right-1 h-3 w-3 bg-red-500 rounded-full border-2 border-white"></span>
                             </div>
                             <div>
@@ -128,7 +128,7 @@ export default function HomePage() {
                     <div className="absolute bottom-10 left-0 md:left-10 bg-white p-3 rounded-2xl shadow-xl border border-blue-50 animate-float-slow z-30">
                         <div className="flex items-center gap-2">
                             <div className="bg-blue-100 p-1.5 rounded-full">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shield-check h-5 w-5 text-blue-600" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                                <ShieldCheck className="h-5 w-5 text-blue-600" />
                             </div>
                             <div>
                                 <p className="text-xs font-bold text-gray-800">100% Seguro</p>
@@ -238,7 +238,7 @@ export default function HomePage() {
       </section>
 
       {/* Tutorials Section */}
-      <section className="py-16 bg-gray-900 text-white">
+      <section id="tutorials" className="py-16 bg-gray-900 text-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold">Conteúdos e Tutoriais</h2>
@@ -279,7 +279,7 @@ export default function HomePage() {
       </section>
 
       {/* IA Consultant Section */}
-      <section className="py-20 lg:py-24 bg-purple-900 text-white">
+      <section id="ai-tips" className="py-20 lg:py-24 bg-purple-900 text-white">
         <div className="container mx-auto px-4 text-center">
           <Badge className="bg-purple-800/80 text-yellow-400 border-purple-700 mb-6">
             <Sparkles className="w-4 h-4 mr-2 text-yellow-400" />
@@ -305,7 +305,7 @@ export default function HomePage() {
       </section>
 
       {/* Contact Section */}
-      <section id="contato" className="py-20 lg:py-24">
+      <section id="contact" className="py-20 lg:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold">Fale Comigo</h2>
@@ -341,3 +341,5 @@ export default function HomePage() {
     </div>
   );
 }
+
+    

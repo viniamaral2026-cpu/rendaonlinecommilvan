@@ -3,9 +3,9 @@ import { Heart } from "lucide-react";
 
 const QUICK_LINKS = [
   { href: "/", label: "Início" },
-  { href: "/#afiliados", label: "Afiliados" },
-  { href: "/#produtos", label: "Produtos" },
-  { href: "/#dicas", label: "Tutoriais" },
+  { href: "/#affiliates", label: "Afiliados" },
+  { href: "/#products", label: "Produtos" },
+  { href: "/#tutorials", label: "Tutoriais" },
 ];
 
 const LEGAL_LINKS = [
@@ -68,3 +68,5 @@ export function Footer() {
     </footer>
   );
 }
+
+    
