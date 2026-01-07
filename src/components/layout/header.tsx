@@ -49,7 +49,7 @@ export function Header() {
         </nav>
         <div className="hidden md:flex items-center justify-end">
            <Button asChild>
-            <Link href="#products">Começar Agora</Link>
+            <Link href="/login">Começar Agora</Link>
            </Button>
         </div>
         <div className="md:hidden flex items-center">
@@ -78,7 +78,7 @@ export function Header() {
                     </Link>
                 ))}
                  <Button asChild className="mt-4">
-                    <Link href="#products">Começar Agora</Link>
+                    <Link href="/login">Começar Agora</Link>
                  </Button>
                 </div>
             </SheetContent>
