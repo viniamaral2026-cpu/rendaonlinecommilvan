@@ -23,7 +23,7 @@
         {
             "question": "Quais investimentos digitais vocês recomendam?",
             "answer": "Focamos em oportunidades seguras e testadas. Isso inclui aplicativos que oferecem renda passiva e plataformas de investimento com boa reputação. O mais importante é começar com pouco e entender os riscos. Na nossa plataforma, damos o caminho das pedras.",
-            "keywords": ["investimentos digitais", "investir", "aplicativos", "plataformas", "seguros", "renda passiva", "dinheiro", "ganhar dinheiro"]
+            "keywords": ["investimentos digitais", "investir", "aplicativos", "plataformas", "seguros", "renda passiva"]
         },
         {
             "question": "Quem é Milvan?",
@@ -39,6 +39,11 @@
             "question": "Como posso entrar em contato?",
             "answer": "Você pode falar diretamente comigo, Milvan, pelo WhatsApp no número 857658841. O atendimento é de Segunda a Sexta, das 8h às 18h.",
             "keywords": ["contato", "whatsapp", "número", "telefone", "ajuda", "suporte"]
+        },
+        {
+            "question": "Como ganhar dinheiro?",
+            "answer": "Existem várias formas! No Renda Online Fácil, focamos em 4 áreas principais para você começar a gerar renda em Moçambique:\n\n1.  **Marketing de Afiliados:** Divulgue produtos e ganhe comissão por cada venda, sem precisar de estoque.\n2.  **Importação da China:** Compre produtos a baixo custo e revenda com uma boa margem de lucro.\n3.  **Vendas Online:** Use o poder do WhatsApp e Facebook Ads para alcançar mais clientes e vender todos os dias.\n4.  **Investimentos Digitais:** Conheça aplicativos e plataformas seguras para fazer seu dinheiro render.\n\nSobre qual deles você gostaria de saber mais?",
+            "keywords": ["ganhar dinheiro", "renda extra", "como começar", "oportunidades", "dinheiro"]
         },
         {
             "question": "Saudação",
