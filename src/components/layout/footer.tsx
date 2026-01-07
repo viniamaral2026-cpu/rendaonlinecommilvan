@@ -7,8 +7,8 @@ export function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-400">
       <div className="container mx-auto px-4 py-8">
-        <div className="flex flex-col md:flex-row justify-between items-center text-sm">
-          <div className="text-center md:text-left mb-4 md:mb-0">
+        <div className="flex flex-col items-center text-center text-sm space-y-4">
+          <div>
             <p>&copy; {currentYear} Renda Online Fácil - Humorista Milvan. Todos os direitos reservados.</p>
             <p>Desenvolvido por Tech Ops (Dresbach Hosting do Brasil Ltda)</p>
           </div>
