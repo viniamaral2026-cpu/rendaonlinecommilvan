@@ -1,7 +1,7 @@
 'use server';
 
 import {
-  askConsultant,
+  askConsultant as askConsultantFlow,
   type IaConsultantInput,
   type IaConsultantOutput,
 } from '@/ai/flows/ia-consultant-flow';
@@ -30,7 +30,7 @@ export async function askConsultant(prevState: State, formData: FormData): Promi
   }
 
   try {
-    const result = await askConsultant(validatedFields.data as IaConsultantInput);
+    const result = await askConsultantFlow(validatedFields.data as IaConsultantInput);
     return { data: result, error: null };
   } catch (e) {
     const errorMessage = e instanceof Error ? e.message : 'Ocorreu um erro inesperado.';
