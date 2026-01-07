@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Star, ArrowRight, Share2, Package, Globe, BarChart, Rocket, Eye, Award, Download, Lock, PlayCircle, Sparkles, Send, Phone, MessageCircle, DollarSign, TrendingUp, Smartphone, Bell, ShieldCheck } from "lucide-react";
+import { Star, ArrowRight, Share2, Package, Globe, BarChart, Rocket, Eye, Award, Download, Lock, PlayCircle, Sparkles, Send, Phone, MessageCircle, DollarSign, TrendingUp, Smartphone, Bell, ShieldCheck, ShoppingBag } from "lucide-react";
 import { TUTORIALS, AFFILIATE_PRODUCTS as DIGITAL_PRODUCTS } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
@@ -20,13 +20,13 @@ const CATEGORIES = [
     footerText: "Comissões Altas",
   },
   {
-    icon: Package,
+    icon: ShoppingBag,
     title: "Importação da China",
     description: "Aprenda a trazer produtos baratos para revender em Moçambique com alta margem.",
     link: "/#",
     bgColor: "bg-orange-50 dark:bg-orange-900/20",
     iconColor: "text-orange-500",
-    footerText: "Margens de Lucro",
+    footerText: "Chega",
   },
   {
     icon: Globe,
@@ -35,10 +35,10 @@ const CATEGORIES = [
     link: "/#",
     bgColor: "bg-purple-50 dark:bg-purple-900/20",
     iconColor: "text-purple-500",
-    footerText: "Alta Conversão",
+    footerText: "Venda Todo Dia",
   },
   {
-    icon: BarChart,
+    icon: TrendingUp,
     title: "Investimentos Digitais",
     description: "Aplicativos que pagam de verdade e plataformas de investimento seguras.",
     link: "/investimentos",
@@ -152,26 +152,47 @@ export default function HomePage() {
             Descubra as principais formas de renda extra que ensinamos em nossa plataforma.
           </p>
           <div className="inline-block w-20 h-1 bg-primary mt-2 mb-12 rounded-full"></div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {CATEGORIES.map((category) => (
-               <Card key={category.title} className={cn("text-left hover:shadow-lg transition-shadow border-0", category.bgColor)}>
-               <CardHeader>
-                  <div className={cn("rounded-lg w-fit p-2.5 flex items-center justify-start bg-white dark:bg-gray-950 mb-4")}>
-                   <category.icon className={cn("w-6 h-6", category.iconColor)} />
-                 </div>
-                 <CardTitle>{category.title}</CardTitle>
-               </CardHeader>
-               <CardContent className="pt-0 pb-4">
-                 <p className="text-muted-foreground text-sm">{category.description}</p>
-               </CardContent>
-               <CardFooter>
-                  <div className={cn("flex items-center text-xs font-semibold", category.iconColor)}>
-                     <Star className="w-4 h-4 mr-1.5 fill-current" />
-                     <span>{category.footerText}</span>
-                  </div>
-               </CardFooter>
-             </Card>
-            ))}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow bg-blue-50 flex flex-col h-full">
+                <div className="mb-4 bg-white p-3 inline-block rounded-lg shadow-sm">
+                    <Share2 className="h-10 w-10 text-blue-500" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Marketing de Afiliados</h3>
+                <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">Ganhe comissões indicando produtos de terceiros. Sem estoque, sem burocracia.</p>
+                <div className="text-xs font-bold text-gray-500 mt-auto pt-4 border-t border-gray-200/50">
+                    <span className="text-green-600">★ </span><span className="italic">Comissões Altas<span className="animate-pulse ml-1 text-green-500">|</span></span>
+                </div>
+            </div>
+            <div className="p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow bg-orange-50 flex flex-col h-full">
+                <div className="mb-4 bg-white p-3 inline-block rounded-lg shadow-sm">
+                    <ShoppingBag className="h-10 w-10 text-orange-500" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Importação da China</h3>
+                <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">Aprenda a trazer produtos baratos para revender em Moçambique com alta margem.</p>
+                <div className="text-xs font-bold text-gray-500 mt-auto pt-4 border-t border-gray-200/50">
+                    <span className="text-green-600">★ </span><span className="italic">Chega <span className="animate-pulse ml-1 text-green-500">|</span></span>
+                </div>
+            </div>
+            <div className="p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow bg-purple-50 flex flex-col h-full">
+                <div className="mb-4 bg-white p-3 inline-block rounded-lg shadow-sm">
+                    <Globe className="h-10 w-10 text-purple-500" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Vendas Online</h3>
+                <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">Como usar o WhatsApp e Facebook Ads para escalar suas vendas rapidamente.</p>
+                <div className="text-xs font-bold text-gray-500 mt-auto pt-4 border-t border-gray-200/50">
+                    <span className="text-green-600">★ </span><span className="italic">Venda Todo Dia<span className="animate-pulse ml-1 text-green-500">|</span></span>
+                </div>
+            </div>
+            <div className="p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow bg-green-50 flex flex-col h-full">
+                <div className="mb-4 bg-white p-3 inline-block rounded-lg shadow-sm">
+                    <TrendingUp className="h-10 w-10 text-green-500" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Investimentos Digitais</h3>
+                <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">Aplicativos que pagam de verdade e plataformas de investimento seguras.</p>
+                <div className="text-xs font-bold text-gray-500 mt-auto pt-4 border-t border-gray-200/50">
+                    <span className="text-green-600">★ </span><span className="italic">Apps C<span className="animate-pulse ml-1 text-green-500">|</span></span>
+                </div>
+            </div>
           </div>
         </div>
       </section>
