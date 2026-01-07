@@ -105,6 +105,61 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-body;
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
   }
+}
+
+/* Custom heartbeat animation */
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.2); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.2); }
+  60% { transform: scale(1); }
+}
+.animate-heartbeat {
+  animation: heartbeat 2s infinite;
+  display: inline-block;
+}
+
+/* Money Rain Animation */
+@keyframes money-fall {
+  0% { transform: translateY(-10vh) rotate(0deg) scale(0.5); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(110vh) rotate(720deg) scale(1.2); opacity: 0; }
+}
+.money-particle {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  animation-name: money-fall;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Floating Animation for Hero Icons */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+.animate-float-delayed {
+  animation: float 5s ease-in-out infinite 1s;
+}
+.animate-float-slow {
+  animation: float 8s ease-in-out infinite 2s;
 }

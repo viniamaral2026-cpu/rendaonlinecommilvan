@@ -58,7 +58,7 @@ const tagIcons = {
 
 export default function HomePage() {
   return (
-    <div className="animate-in fade-in-50">
+    <div className="animate-fade-in">
       {/* Hero Section */}
       <section className="bg-muted/50 py-20 lg:py-32">
         <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
