@@ -1,9 +1,10 @@
+'use client';
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Star, ShoppingCart, ArrowRight, Share2, Package, ShoppingBag, BarChart } from "lucide-react";
+import { Star, ShoppingCart, ArrowRight, Share2, Package, ShoppingBag, BarChart, Rocket } from "lucide-react";
 import { TUTORIALS, AFFILIATE_PRODUCTS as DIGITAL_PRODUCTS } from "@/lib/data";
 
 const CATEGORIES = [
@@ -38,33 +39,36 @@ export default function HomePage() {
   return (
     <div className="animate-in fade-in-50">
       {/* Hero Section */}
-      <section className="bg-[#F8F9FA] py-20 lg:py-32">
+      <section className="bg-muted/50 py-20 lg:py-32">
         <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <Badge variant="outline" className="bg-white border-primary text-primary">Aprenda com Liber</Badge>
+            <Badge variant="outline" className="bg-primary/10 border-primary/20 text-primary font-medium">
+              <Rocket className="w-4 h-4 mr-2" />
+              Aprenda com Milvan
+            </Badge>
             <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">
-              Transforme seu tempo em <span className="text-primary">Renda</span>
+              Transforme seu tempo em <span className="text-primary">Renda Extra</span>
             </h1>
             <p className="text-lg text-muted-foreground">
-              Bem-vindo ao Renda Online Fácil! A plataforma completa para você dominar o Marketing de Afiliados, Importação e Vendas Online. O método prático para quem quer resultados.
+              Bem-vindo ao Renda Online Fácil. A plataforma completa para você dominar o Marketing de Afiliados, Importação e Vendas Online. O método prático para quem quer resultados.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" asChild>
-                <Link href="/#">Ver todos os Produtos <ArrowRight className="ml-2" /></Link>
+                <Link href="/#">Ver Aulas Premium <ArrowRight className="ml-2" /></Link>
               </Button>
-              <Button size="lg" variant="secondary">
+              <Button size="lg" variant="outline">
                 Fale Comigo
               </Button>
             </div>
           </div>
           <div className="hidden lg:block">
             <Image
-              src="https://picsum.photos/seed/mobile-app/600/500"
+              src="https://picsum.photos/seed/mobile-app-screenshot/600/500"
               alt="App Screenshot"
               width={600}
               height={500}
               className="rounded-xl shadow-2xl"
-              data-ai-hint="mobile app interface"
+              data-ai-hint="mobile app interface finance"
             />
           </div>
         </div>
