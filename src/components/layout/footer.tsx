@@ -1,59 +1,70 @@
 import Link from "next/link";
+import { Heart } from "lucide-react";
 
-const NAV_LINKS = [
-  { href: "#", label: "Início" },
-  { href: "#", label: "Sobre Nós" },
-  { href: "#", label: "Produtos" },
-  { href: "#", label: "Blog" },
-  { href: "#", label: "Contato" },
-  { href: "#", label: "Termos de Serviço" },
+const QUICK_LINKS = [
+  { href: "/", label: "Início" },
+  { href: "/#afiliados", label: "Afiliados" },
+  { href: "/#produtos", label: "Produtos" },
+  { href: "/#dicas", label: "Tutoriais" },
+];
+
+const LEGAL_LINKS = [
+  { href: "#", label: "Termos de Uso" },
   { href: "#", label: "Política de Privacidade" },
 ];
 
-const SOCIAL_LINKS = [
-    // Add social links here if needed
-];
-
-
 export function Footer() {
-    return (
-        <footer className="bg-gray-900 text-gray-400">
-            <div className="container mx-auto px-4 py-12">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                    <div>
-                        <h3 className="font-bold text-lg text-white mb-4">Renda Online Fácil</h3>
-                        <p className="text-sm">Sua plataforma para maximizar a renda online através de métodos comprovados e suporte de IA.</p>
-                    </div>
-                     <div>
-                        <h3 className="font-semibold text-white mb-4">Navegação</h3>
-                        <ul className="space-y-2">
-                           {NAV_LINKS.slice(0, 5).map(link => (
-                             <li key={link.label}>
-                                <Link href={link.href} className="hover:text-white transition-colors text-sm">{link.label}</Link>
-                             </li>
-                           ))}
-                        </ul>
-                    </div>
-                     <div>
-                        <h3 className="font-semibold text-white mb-4">Legal</h3>
-                         <ul className="space-y-2">
-                           {NAV_LINKS.slice(5).map(link => (
-                             <li key={link.label}>
-                                <Link href={link.href} className="hover:text-white transition-colors text-sm">{link.label}</Link>
-                             </li>
-                           ))}
-                        </ul>
-                    </div>
-                     <div>
-                        <h3 className="font-semibold text-white mb-4">Inscreva-se na nossa newsletter</h3>
-                        <p className="text-sm mb-4">Receba dicas e novidades diretamente no seu e-mail.</p>
-                        {/* Newsletter form can be added here */}
-                    </div>
-                </div>
-                <div className="border-t border-gray-800 mt-8 pt-6 text-center text-sm">
-                    <p>&copy; {new Date().getFullYear()} Renda Online Fácil. Todos os direitos reservados.</p>
-                </div>
-            </div>
-        </footer>
-    )
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="bg-gray-900 text-gray-400">
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <div className="md:col-span-2">
+            <h3 className="font-bold text-lg text-white mb-4">Renda Online Fácil</h3>
+            <p className="text-sm max-w-md">
+              Sua plataforma definitiva para aprender sobre marketing digital e importação em Moçambique.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-semibold text-white mb-4">Links Rápidos</h3>
+            <ul className="space-y-2">
+              {QUICK_LINKS.map(link => (
+                <li key={link.label}>
+                  <Link href={link.href} className="hover:text-white transition-colors text-sm">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-semibold text-white mb-4">Legal</h3>
+            <ul className="space-y-2">
+              {LEGAL_LINKS.map(link => (
+                <li key={link.label}>
+                  <Link href={link.href} className="hover:text-white transition-colors text-sm">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+          <p className="mb-4 md:mb-0 text-center md:text-left">
+            &copy; {currentYear} Renda Online Fácil - Humorista Milvan. Todos os direitos reservados.
+          </p>
+          <p className="flex items-center gap-1.5">
+            Desenvolvido
+            <Heart className="w-4 h-4 text-red-500 fill-current" />
+            por
+            <Link href="#" className="font-semibold text-white hover:underline">
+              Suprema Sites Express
+            </Link>
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
 }
