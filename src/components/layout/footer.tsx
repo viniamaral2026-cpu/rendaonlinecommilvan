@@ -13,16 +13,7 @@ export function Footer() {
             <p>Desenvolvido por Tech Ops (Dresbach Hosting do Brasil Ltda)</p>
           </div>
           <div className="flex items-center">
-            <Link href="/" passHref>
-              <div className="relative h-12 w-48 cursor-pointer">
-                <Image 
-                  src="/LOGO_DRESBACH_500-removebg-preview.png" 
-                  alt="Logo Dresbach Hosting"
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </div>
-            </Link>
+            {/* O logo será renderizado aqui assim que for movido para a pasta /public */}
           </div>
         </div>
       </div>
