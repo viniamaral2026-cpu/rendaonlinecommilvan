@@ -12,8 +12,13 @@ export function Footer() {
             <p>&copy; {currentYear} Renda Online Fácil - Humorista Milvan. Todos os direitos reservados.</p>
             <p>Desenvolvido por Tech Ops (Dresbach Hosting do Brasil Ltda)</p>
           </div>
-          <div className="flex items-center">
-            {/* O logo será renderizado aqui assim que for movido para a pasta /public */}
+          <div className="flex items-center mt-4">
+            <Image
+              src="/LOGO_DRESBACH_500-removebg-preview.png"
+              alt="Logo Dresbach Hosting"
+              width={150}
+              height={38} 
+            />
           </div>
         </div>
       </div>
