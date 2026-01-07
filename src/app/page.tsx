@@ -11,25 +11,25 @@ const CATEGORIES = [
     icon: Share2,
     title: "Marketing de Afiliados",
     description: "Ganhe comissões indicando produtos de terceiros. Sem estoque, sem burocracia.",
-    link: "#",
+    link: "/#",
   },
   {
     icon: Package,
     title: "Importação da China",
     description: "Aprenda a buscar produtos inovadores e com margens de lucro surpreendentes.",
-    link: "#",
+    link: "/#",
   },
   {
     icon: ShoppingBag,
     title: "Vendas Online",
     description: "Crie sua loja ou WhatsApp/Facebook para vender para todo o país, 24h por dia.",
-    link: "#",
+    link: "/#",
   },
   {
     icon: BarChart,
     title: "Investimentos Digitais",
     description: "Explore o mundo das criptomoedas, ações e outras formas de fazer seu dinheiro render.",
-    link: "#",
+    link: "/investimentos",
   },
 ];
 
@@ -38,21 +38,21 @@ export default function HomePage() {
   return (
     <div className="animate-in fade-in-50">
       {/* Hero Section */}
-      <section className="bg-[#F0FFF4] py-20 lg:py-32">
+      <section className="bg-[#F8F9FA] py-20 lg:py-32">
         <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <Badge variant="outline" className="bg-white border-primary text-primary">Aprenda com Liber</Badge>
             <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">
-              Transforme seu tempo em <span className="text-primary">Liber</span>
+              Transforme seu tempo em <span className="text-primary">Renda</span>
             </h1>
             <p className="text-lg text-muted-foreground">
               Bem-vindo ao Renda Online Fácil! A plataforma completa para você dominar o Marketing de Afiliados, Importação e Vendas Online. O método prático para quem quer resultados.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" asChild>
-                <Link href="#">Ver todos os Produtos <ArrowRight className="ml-2" /></Link>
+                <Link href="/#">Ver todos os Produtos <ArrowRight className="ml-2" /></Link>
               </Button>
-              <Button size="lg" variant="outline">
+              <Button size="lg" variant="secondary">
                 Fale Comigo
               </Button>
             </div>
@@ -81,7 +81,7 @@ export default function HomePage() {
             {CATEGORIES.map((category) => (
               <Card key={category.title} className="text-left hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="bg-primary/10 text-primary rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+                  <div className="bg-yellow-400/10 text-yellow-500 rounded-lg w-12 h-12 flex items-center justify-center mb-4">
                     <category.icon className="w-6 h-6" />
                   </div>
                   <CardTitle>{category.title}</CardTitle>
@@ -129,7 +129,7 @@ export default function HomePage() {
                   <Image src={product.imageUrl} alt={product.name} width={600} height={400} className="object-cover w-full h-48 group-hover:scale-105 transition-transform" data-ai-hint={product.imageHint} />
                 </CardHeader>
                 <CardContent className="p-6">
-                  <Badge>eBook</Badge>
+                  <Badge variant="secondary">eBook</Badge>
                   <CardTitle className="mt-2 mb-2">{product.name}</CardTitle>
                   <CardDescription className="text-sm line-clamp-2">{product.vendor}</CardDescription>
                   <div className="flex items-center mt-4">
@@ -141,7 +141,7 @@ export default function HomePage() {
                 </CardContent>
                 <CardFooter className="flex justify-between items-center bg-muted/50 px-6 py-4">
                   <span className="text-lg font-bold text-destructive">{product.commission * 10} MT</span>
-                  <Button variant="outline">
+                  <Button>
                     <ShoppingCart className="w-4 h-4 mr-2" />
                     Comprar
                   </Button>
