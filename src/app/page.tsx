@@ -1,10 +1,11 @@
+
 'use client';
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Star, ArrowRight, Share2, Package, Globe, BarChart, Rocket, Eye, Award, Download, Lock, PlayCircle, Sparkles, Send, Phone, MessageCircle, DollarSign, TrendingUp, Smartphone, Bell, ShieldCheck, ShoppingBag } from "lucide-react";
+import { Star, ArrowRight, Share2, Package, Globe, BarChart, Rocket, Eye, Award, Download, Lock, LockOpen, PlayCircle, Sparkles, Send, Phone, MessageCircle, DollarSign, TrendingUp, Smartphone, Bell, ShieldCheck, ShoppingBag } from "lucide-react";
 import { TUTORIALS, AFFILIATE_PRODUCTS as DIGITAL_PRODUCTS } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
@@ -65,7 +66,7 @@ export default function HomePage() {
             <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
                 <div className="mb-12 lg:mb-0 relative z-10">
                     <span className="inline-block py-1 px-3 rounded-full bg-green-100 text-green-700 text-sm font-semibold mb-6 shadow-sm border border-green-200">🚀 Aprenda com Milvan</span>
-                    <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-6 h-32 md:h-auto">Transforme seu tempo em <br className="md:hidden" /><span className="text-green-600 drop-shadow-sm"><span className="">Sucesso Digital<span className="animate-pulse ml-1 text-green-500">|</span></span></span></h1>
+                    <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-6 h-32 md:h-auto">Transforme seu tempo em <br className="md:hidden" /><span className="text-green-600 drop-shadow-sm">Sucesso Digital<span className="animate-pulse ml-1 text-green-500">|</span></span></h1>
                     <p className="text-lg text-gray-600 mb-8 leading-relaxed">Bem-vindo ao <strong>Renda Online Fácil</strong>. A plataforma completa para você dominar o Marketing de Afiliados, Importação e Vendas Online. O método prático para quem quer resultados.</p>
                     <div className="flex flex-col sm:flex-row gap-4">
                         <a href="#tutorials" className="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-green-600 hover:bg-green-700 shadow-lg shadow-green-300 transition-all hover:-translate-y-1 active:scale-95">Ver Aulas Premium<ArrowRight className="ml-2 h-5 w-5" /></a>
@@ -331,41 +332,49 @@ export default function HomePage() {
       </section>
 
       {/* Tutorials Section */}
-      <section id="tutorials" className="py-16 bg-gray-900 text-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold">Conteúdos e Tutoriais</h2>
-            <p className="text-gray-400 mt-2">Acesse nossa biblioteca de conhecimento. Vídeos exclusivos para mudar sua vida financeira.</p>
-            <div className="inline-block w-20 h-1 bg-primary mt-4 rounded-full"></div>
+      <section id="tutorials" className="py-16 bg-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Conteúdos e Tutoriais</h2>
+            <p className="text-lg max-w-2xl mx-auto text-gray-200">Acesse nossa biblioteca de conhecimento. Vídeos exclusivos para mudar sua vida financeira.</p>
+            <div className="h-1 w-24 mx-auto mt-6 rounded-full bg-green-400"></div>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {TUTORIALS.slice(0, 4).map((tutorial) => (
-              <Card key={tutorial.id} className="bg-gray-800 border-gray-700 text-white overflow-hidden group flex flex-col">
-                 <CardHeader className="p-0 relative">
-                  <Image src={tutorial.imageUrl} alt={tutorial.title} width={600} height={400} className="object-cover w-full h-40 group-hover:scale-105 transition-transform" data-ai-hint={tutorial.imageHint} />
-                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center group-hover:bg-black/70 transition-colors">
-                    <PlayCircle className="w-12 h-12 text-white/80 group-hover:text-white group-hover:scale-110 transition-transform" />
-                    {tutorial.locked && <div className="absolute top-2 right-2 p-1.5 bg-yellow-500/80 rounded-full"><Lock className="w-4 h-4 text-gray-900" /></div>}
-                    <span className="bg-black/50 text-white text-xs px-2 py-1 rounded absolute bottom-2 right-2">{tutorial.duration}</span>
-                  </div>
-                 </CardHeader>
-                <CardContent className="p-4 flex-grow">
-                  <h3 className="font-semibold mb-2 line-clamp-2 h-12">{tutorial.title}</h3>
-                </CardContent>
-                 <CardFooter className="p-4 mt-auto">
+              <div key={tutorial.id} className="bg-gray-800 rounded-lg overflow-hidden shadow-lg border border-gray-700 group relative">
+                <div className="relative">
+                  <Image 
+                    alt={tutorial.title} 
+                    className="w-full h-48 object-cover opacity-80 group-hover:opacity-100 transition-opacity" 
+                    src={tutorial.imageUrl}
+                    width={400}
+                    height={250}
+                    data-ai-hint={tutorial.imageHint}
+                  />
+                  <div className="absolute bottom-2 right-2 bg-black bg-opacity-70 px-2 py-1 rounded text-xs">{tutorial.duration}</div>
+                  {tutorial.locked && (
+                    <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
+                      <Lock className="h-12 w-12 text-yellow-500" />
+                    </div>
+                  )}
+                </div>
+                <div className="p-4">
+                  <h4 className="font-bold text-lg mb-2 line-clamp-2 h-14 text-white">{tutorial.title}</h4>
+                  <div className="flex justify-between items-center mt-4">
                     {tutorial.locked ? (
-                      <Button className="w-full bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold">
-                        <Lock className="w-4 h-4 mr-2"/>
+                       <Button className="w-full bg-yellow-600 hover:bg-yellow-700 text-white text-sm font-bold py-2 px-4 rounded flex items-center justify-center gap-2 transition-colors hover:scale-105 transform">
+                        <Lock className="h-4 w-4" />
                         Desbloquear ({tutorial.price?.toFixed(2)} MT)
                       </Button>
                     ) : (
-                      <Button variant="secondary" className="w-full">
-                        <PlayCircle className="w-4 h-4 mr-2"/>
+                      <Button className="w-full bg-green-600 hover:bg-green-700 text-white text-sm font-bold py-2 px-4 rounded flex items-center justify-center gap-2 transition-colors">
+                        <LockOpen className="h-4 w-4" />
                         Assistir Agora
                       </Button>
                     )}
-                 </CardFooter>
-              </Card>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -434,5 +443,7 @@ export default function HomePage() {
     </div>
   );
 }
+
+    
 
     
