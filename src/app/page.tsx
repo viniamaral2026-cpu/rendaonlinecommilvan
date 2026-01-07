@@ -381,27 +381,25 @@ export default function HomePage() {
       </section>
 
       {/* IA Consultant Section */}
-      <section id="ai-tips" className="py-20 lg:py-24 bg-purple-900 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <Badge className="bg-purple-800/80 text-yellow-400 border-purple-700 mb-6">
-            <Sparkles className="w-4 h-4 mr-2 text-yellow-400" />
-            Consultor IA - Renda Extra
-          </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Tem dúvida sobre como começar?</h2>
-          <p className="text-purple-200 max-w-2xl mx-auto mb-8">
+      <section id="ai-tips" className="py-16 bg-gradient-to-r from-indigo-900 to-purple-900 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center justify-center p-3 bg-white/10 rounded-full mb-6">
+            <Sparkles className="h-6 w-6 text-yellow-300 mr-2" />
+            <span className="font-semibold text-yellow-300">Consultor IA - Renda Extra</span>
+          </div>
+          <h2 className="text-3xl font-bold mb-4">Tem dúvida sobre como começar?</h2>
+          <p className="text-gray-300 mb-8">
             Pergunte à nossa Inteligência Artificial. Digite um tema (ex: "como vender no Instagram", "investir em ações", "criar um negócio de importação" ou "marketing de afiliados").
           </p>
-          <div className="max-w-xl mx-auto">
-            <div className="relative">
-              <Input
-                type="text"
-                placeholder="Ex: Como vender mais no Instagram?"
-                className="w-full rounded-full p-6 text-base bg-white/10 border-purple-700 focus:ring-yellow-400 placeholder:text-purple-300"
-              />
-              <Button type="submit" size="icon" className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full w-10 h-10 bg-gray-200 hover:bg-white">
-                <Send className="w-5 h-5 text-purple-800" />
-              </Button>
-            </div>
+          <div className="max-w-lg mx-auto bg-white rounded-xl p-2 flex shadow-2xl">
+            <Input
+              placeholder="Ex: Como vender mais no Instagram?"
+              className="flex-1 px-4 py-2 text-gray-900 outline-none rounded-l-lg bg-transparent border-none focus:ring-0 focus-visible:ring-offset-0"
+              type="text"
+            />
+            <Button disabled={false} className="bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-400 text-white px-6 py-2 rounded-lg font-bold transition-colors flex items-center">
+              <Send className="h-5 w-5" />
+            </Button>
           </div>
         </div>
       </section>
@@ -443,6 +441,8 @@ export default function HomePage() {
     </div>
   );
 }
+
+    
 
     
 
