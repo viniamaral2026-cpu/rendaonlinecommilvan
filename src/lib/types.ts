@@ -19,9 +19,12 @@ export type AffiliateProduct = {
 export type Tutorial = {
   id: string;
   title: string;
-  category: 'Marketing Digital' | 'Vendas Online' | 'Investimentos';
+  category: string;
   imageUrl: string;
   imageHint: string;
+  duration: string;
+  locked: boolean;
+  price?: number;
 };
 
 export type RecentSale = {

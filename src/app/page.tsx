@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Star, ArrowRight, Share2, Package, Globe, BarChart, Rocket, Eye, Award, Download, Dot } from "lucide-react";
+import { Star, ArrowRight, Share2, Package, Globe, BarChart, Rocket, Eye, Award, Download, Dot, Lock, PlayCircle } from "lucide-react";
 import { TUTORIALS, AFFILIATE_PRODUCTS as DIGITAL_PRODUCTS } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
@@ -187,7 +187,7 @@ export default function HomePage() {
                       <span className="text-sm text-muted-foreground ml-2">{product.reviewCount}</span>
                     </div>
                     <div className="flex justify-between items-center">
-                       <span className="text-2xl font-bold text-primary">{product.price} MT</span>
+                       <span className="text-2xl font-bold text-destructive">{product.price} MT</span>
                       <Button variant="secondary" className="bg-gray-800 text-white hover:bg-gray-900">
                         <Download className="w-4 h-4 mr-2" />
                         Comprar
@@ -211,20 +211,29 @@ export default function HomePage() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {TUTORIALS.slice(0, 4).map((tutorial) => (
-              <Card key={tutorial.id} className="bg-gray-800 border-gray-700 text-white overflow-hidden group">
+              <Card key={tutorial.id} className="bg-gray-800 border-gray-700 text-white overflow-hidden group flex flex-col">
                  <CardHeader className="p-0 relative">
                   <Image src={tutorial.imageUrl} alt={tutorial.title} width={600} height={400} className="object-cover w-full h-40 group-hover:scale-105 transition-transform" data-ai-hint={tutorial.imageHint} />
                   <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                    <span className="bg-black/50 text-white text-xs px-2 py-1 rounded absolute bottom-2 right-2">10:30</span>
+                    {tutorial.locked && <Lock className="w-10 h-10 text-yellow-400" />}
+                    <span className="bg-black/50 text-white text-xs px-2 py-1 rounded absolute bottom-2 right-2">{tutorial.duration}</span>
                   </div>
                  </CardHeader>
-                <CardContent className="p-4">
-                  <h3 className="font-semibold mb-2 line-clamp-2">{tutorial.title}</h3>
+                <CardContent className="p-4 flex-grow">
+                  <h3 className="font-semibold mb-2 line-clamp-2 h-12">{tutorial.title}</h3>
                 </CardContent>
-                 <CardFooter className="p-4">
-                    <Button className="w-full">
-                      Desbloquear (99 MT)
-                    </Button>
+                 <CardFooter className="p-4 mt-auto">
+                    {tutorial.locked ? (
+                      <Button className="w-full bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold">
+                        <Lock className="w-4 h-4 mr-2"/>
+                        Desbloquear ({tutorial.price} MT)
+                      </Button>
+                    ) : (
+                      <Button className="w-full bg-green-600 hover:bg-green-700">
+                        <PlayCircle className="w-4 h-4 mr-2"/>
+                        Assistir Agora
+                      </Button>
+                    )}
                  </CardFooter>
               </Card>
             ))}
