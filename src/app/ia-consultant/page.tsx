@@ -80,7 +80,7 @@ export default function IAConsultantPage() {
           <h1 className="text-4xl font-bold">Consultor IA</h1>
           <p className="text-muted-foreground mt-2">Faça uma pergunta e receba ajuda para sua jornada de renda online.</p>
         </div>
-        <Card className="flex flex-col h-[600px]">
+        <Card className="flex flex-col h-[500px]">
           <CardContent className="flex-1 overflow-y-auto p-4 md:p-6 space-y-6">
               {messages.map((message) => (
                   <div key={message.id} className={cn("flex items-start gap-4", message.role === 'user' ? 'justify-end' : 'justify-start')}>
