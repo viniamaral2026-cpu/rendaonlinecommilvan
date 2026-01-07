@@ -10,12 +10,12 @@ import {
 } from "@/components/ui/sheet";
 
 const NAV_LINKS = [
-    { href: "#home", label: "Início" },
-    { href: "#afiliados", label: "Afiliados" },
-    { href: "#produtos", label: "Produtos" },
-    { href: "#dicas", label: "Dicas Premium" },
-    { href: "#ai-tips", label: "IA Consultant" },
-    { href: "#contato", label: "Contato" },
+    { href: "/#", label: "Início" },
+    { href: "/#afiliados", label: "Afiliados" },
+    { href: "/#produtos", label: "Produtos" },
+    { href: "/#dicas", label: "Dicas Premium" },
+    { href: "/investimentos", label: "IA Consultant" },
+    { href: "/#contato", label: "Contato" },
 ];
 
 const Logo = () => (
