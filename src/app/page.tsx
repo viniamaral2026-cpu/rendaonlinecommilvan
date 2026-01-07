@@ -4,9 +4,10 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Star, ArrowRight, Share2, Package, Globe, BarChart, Rocket, Eye, Award, Download, Dot, Lock, PlayCircle } from "lucide-react";
+import { Star, ArrowRight, Share2, Package, Globe, BarChart, Rocket, Eye, Award, Download, Dot, Lock, PlayCircle, Sparkles, Send } from "lucide-react";
 import { TUTORIALS, AFFILIATE_PRODUCTS as DIGITAL_PRODUCTS } from "@/lib/data";
 import { cn } from "@/lib/utils";
+import { Input } from "@/components/ui/input";
 
 const CATEGORIES = [
   {
@@ -104,23 +105,23 @@ export default function HomePage() {
           <div className="inline-block w-20 h-1 bg-primary mt-2 mb-12 rounded-full"></div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {CATEGORIES.map((category) => (
-              <Card key={category.title} className={cn("text-left hover:shadow-lg transition-shadow border-none", category.bgColor)}>
-                <CardHeader>
-                   <div className="rounded-lg w-fit p-3 flex items-center justify-start bg-background/60 mb-4">
-                    <category.icon className={cn("w-6 h-6", category.iconColor)} />
+               <Card key={category.title} className={cn("text-left hover:shadow-lg transition-shadow border-0", category.bgColor)}>
+               <CardHeader>
+                  <div className={cn("rounded-lg w-fit p-2.5 flex items-center justify-start bg-background/60 mb-4", category.bgColor)}>
+                   <category.icon className={cn("w-6 h-6", category.iconColor)} />
+                 </div>
+                 <CardTitle>{category.title}</CardTitle>
+               </CardHeader>
+               <CardContent className="pt-0 pb-4">
+                 <p className="text-muted-foreground text-sm">{category.description}</p>
+               </CardContent>
+               <CardFooter>
+                  <div className="flex items-center text-xs font-semibold text-primary">
+                     <Star className="w-4 h-4 mr-1.5 fill-current" />
+                     <span>{category.footerText}</span>
                   </div>
-                  <CardTitle>{category.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="pt-0">
-                  <p className="text-muted-foreground text-sm">{category.description}</p>
-                </CardContent>
-                <CardFooter>
-                   <div className="flex items-center text-sm font-semibold text-primary">
-                      <Star className="w-4 h-4 mr-2 fill-current" />
-                      <span>{category.footerText}</span>
-                   </div>
-                </CardFooter>
-              </Card>
+               </CardFooter>
+             </Card>
             ))}
           </div>
         </div>
@@ -129,7 +130,7 @@ export default function HomePage() {
        {/* Affiliate CTA */}
       <section className="py-16">
         <div className="container mx-auto px-4 text-center">
-          <Card className="max-w-3xl mx-auto p-8 bg-muted/50">
+          <Card className="max-w-3xl mx-auto p-8 bg-muted/50 border-0">
              <h2 className="text-3xl font-bold mb-4">Torne-se um Afiliado de Sucesso</h2>
              <p className="text-muted-foreground mb-8">
                Nós fornecemos os links, os criativos e as estratégias. Você só precisa divulgar e ganhar.
@@ -154,43 +155,29 @@ export default function HomePage() {
                 <div className="relative">
                   <Image src={product.imageUrl} alt={product.name} width={600} height={400} className="object-cover w-full h-48 group-hover:scale-105 transition-transform" data-ai-hint={product.imageHint} />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <Badge className="absolute top-4 right-4 bg-white/90 text-gray-800 hover:bg-white">
+                   <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground">
                     {product.type}
                   </Badge>
-                  <div className="absolute bottom-2 left-4 flex flex-col gap-2">
-                    {product.tags.map((tag) => {
-                      const TagIcon = tag.icon ? tagIcons[tag.icon] : null;
-                      const isSpyButton = tag.text === "Espiar";
-                      return (
-                        <div key={tag.text} className={cn("flex items-center", {
-                          "bg-white/90 text-gray-800 rounded-full px-3 py-1 text-sm font-semibold hover:bg-white cursor-pointer": isSpyButton,
-                          "text-white text-xs font-medium": !isSpyButton
-                        })}>
-                          {!isSpyButton && <Dot className="text-red-500 w-6 h-6 -ml-2" />}
-                          {TagIcon && isSpyButton && <TagIcon className="w-4 h-4 mr-2" />}
-                          <span>{tag.text}</span>
-                        </div>
-                      );
-                    })}
-                  </div>
                 </div>
-                <CardContent className="p-6 flex-grow">
-                  <CardTitle className="mt-2 mb-2 text-xl">{product.name}</CardTitle>
-                  <CardDescription className="text-sm line-clamp-3">{product.description}</CardDescription>
-                </CardContent>
-                <CardFooter className="px-6 pb-6 mt-auto">
-                  <div className="w-full">
-                    <div className="flex items-center mt-4 mb-4">
-                      <div className="flex text-yellow-400">
-                        {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-current" />)}
-                      </div>
-                      <span className="text-sm text-muted-foreground ml-2">{product.reviewCount}</span>
+                <CardHeader className="p-6 pb-2">
+                  <CardTitle className="text-xl mb-2">{product.name}</CardTitle>
+                </CardHeader>
+                <CardContent className="p-6 pt-0 flex-grow">
+                  <CardDescription className="text-sm line-clamp-2">{product.description}</CardDescription>
+                  <div className="flex items-center mt-4">
+                    <div className="flex text-yellow-400">
+                      {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-current" />)}
                     </div>
+                    <span className="text-sm text-muted-foreground ml-2">{product.reviewCount} reviews</span>
+                  </div>
+                </CardContent>
+                <CardFooter className="px-6 pb-6 mt-auto bg-slate-50 dark:bg-slate-800/50">
+                  <div className="w-full">
                     <div className="flex justify-between items-center">
-                       <span className="text-2xl font-bold text-destructive">{product.price} MT</span>
-                      <Button variant="secondary" className="bg-gray-800 text-white hover:bg-gray-900">
+                       <span className="text-2xl font-bold text-destructive">{product.price.toFixed(2)} MT</span>
+                      <Button>
                         <Download className="w-4 h-4 mr-2" />
-                        Comprar
+                        Comprar Agora
                       </Button>
                     </div>
                   </div>
@@ -214,8 +201,9 @@ export default function HomePage() {
               <Card key={tutorial.id} className="bg-gray-800 border-gray-700 text-white overflow-hidden group flex flex-col">
                  <CardHeader className="p-0 relative">
                   <Image src={tutorial.imageUrl} alt={tutorial.title} width={600} height={400} className="object-cover w-full h-40 group-hover:scale-105 transition-transform" data-ai-hint={tutorial.imageHint} />
-                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                    {tutorial.locked && <Lock className="w-10 h-10 text-yellow-400" />}
+                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center group-hover:bg-black/70 transition-colors">
+                    <PlayCircle className="w-12 h-12 text-white/80 group-hover:text-white group-hover:scale-110 transition-transform" />
+                    {tutorial.locked && <div className="absolute top-2 right-2 p-1.5 bg-yellow-500/80 rounded-full"><Lock className="w-4 h-4 text-gray-900" /></div>}
                     <span className="bg-black/50 text-white text-xs px-2 py-1 rounded absolute bottom-2 right-2">{tutorial.duration}</span>
                   </div>
                  </CardHeader>
@@ -226,10 +214,10 @@ export default function HomePage() {
                     {tutorial.locked ? (
                       <Button className="w-full bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold">
                         <Lock className="w-4 h-4 mr-2"/>
-                        Desbloquear ({tutorial.price} MT)
+                        Desbloquear ({tutorial.price?.toFixed(2)} MT)
                       </Button>
                     ) : (
-                      <Button className="w-full bg-green-600 hover:bg-green-700">
+                      <Button variant="secondary" className="w-full">
                         <PlayCircle className="w-4 h-4 mr-2"/>
                         Assistir Agora
                       </Button>
@@ -240,6 +228,33 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* IA Consultant Section */}
+      <section className="py-20 lg:py-24 bg-purple-900 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <Badge className="bg-purple-800/80 text-yellow-400 border-purple-700 mb-6">
+            <Sparkles className="w-4 h-4 mr-2 text-yellow-400" />
+            Consultor IA - Renda Extra
+          </Badge>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Tem dúvida sobre como começar?</h2>
+          <p className="text-purple-200 max-w-2xl mx-auto mb-8">
+            Pergunte à nossa Inteligência Artificial. Digite um tema (ex: "como vender no Instagram", "investir em ações", "criar um negócio de importação" ou "marketing de afiliados").
+          </p>
+          <div className="max-w-xl mx-auto">
+            <div className="relative">
+              <Input
+                type="text"
+                placeholder="Ex: Como vender mais no Instagram?"
+                className="w-full rounded-full p-6 text-base bg-white/10 border-purple-700 focus:ring-yellow-400 placeholder:text-purple-300"
+              />
+              <Button type="submit" size="icon" className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full w-10 h-10 bg-gray-200 hover:bg-white">
+                <Send className="w-5 h-5 text-purple-800" />
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }
