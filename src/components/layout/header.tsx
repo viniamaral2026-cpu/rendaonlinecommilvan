@@ -10,13 +10,12 @@ import {
 } from "@/components/ui/sheet";
 
 const NAV_LINKS = [
-  { href: "/", label: "Início" },
-  { href: "/#afiliados", label: "Afiliados" },
-  { href: "/#produtos", label: "Produtos" },
-  { href: "/#dicas", label: "Dicas Premium" },
-  { href: "/investimentos", label: "Consultor IA" },
-  { href: "/comparador", label: "Comparador" },
-  { href: "/#contato", label: "Contato" },
+    { href: "#home", label: "Início" },
+    { href: "#afiliados", label: "Afiliados" },
+    { href: "#produtos", label: "Produtos" },
+    { href: "#dicas", label: "Dicas Premium" },
+    { href: "#ai-tips", label: "IA Consultant" },
+    { href: "#contato", label: "Contato" },
 ];
 
 const Logo = () => (
@@ -24,21 +23,7 @@ const Logo = () => (
     <div className="relative flex items-center justify-center">
       <div className="absolute inset-0 bg-green-500/20 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-opacity duration-300"></div>
       <div className="bg-primary/10 p-2 rounded-full z-10">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="text-primary w-5 h-5 transition-transform duration-500 group-hover:rotate-[360deg]"
-        >
-          <line x1="12" x2="12" y1="2" y2="22"></line>
-          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary w-5 h-5 transition-transform duration-500 group-hover:rotate-[360deg]"><line x1="12" x2="12" y1="2" y2="22"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
       </div>
     </div>
     <span className="font-bold text-lg text-foreground">Renda Online Fácil</span>
@@ -52,20 +37,21 @@ export function Header() {
         <div className="flex-1 flex justify-start">
             <Logo />
         </div>
-        <nav className="hidden md:flex gap-6 text-sm font-medium items-center text-muted-foreground flex-1 justify-center">
+        <nav className="hidden md:flex gap-6 text-sm font-medium items-center text-gray-700 flex-1 justify-center">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className="transition-colors hover:text-foreground"
+              className="transition-colors hover:text-green-600 font-medium"
             >
               {link.label}
             </Link>
           ))}
         </nav>
         <div className="hidden md:flex items-center justify-end space-x-4 flex-1">
-           <Button variant="outline">Login</Button>
-           <Button>Começar Agora</Button>
+           <Button asChild className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition-colors font-semibold shadow-lg hover:shadow-green-500/50 transform hover:scale-105">
+            <Link href="#produtos">Começar Agora</Link>
+           </Button>
         </div>
         <div className="md:hidden flex flex-1 justify-end">
             <Sheet>
@@ -92,8 +78,9 @@ export function Header() {
                     {link.label}
                     </Link>
                 ))}
-                 <Button className="mt-4">Começar Agora</Button>
-                 <Button variant="outline">Login</Button>
+                 <Button asChild className="mt-4 bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition-colors font-semibold shadow-lg hover:shadow-green-500/50 transform hover:scale-105">
+                    <Link href="#produtos">Começar Agora</Link>
+                 </Button>
                 </div>
             </SheetContent>
             </Sheet>
