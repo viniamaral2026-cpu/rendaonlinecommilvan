@@ -63,10 +63,7 @@ export default function HomePage() {
       <section className="bg-muted/50 py-20 lg:py-32">
         <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <Badge variant="outline" className="bg-primary/10 border-primary/20 text-primary font-medium">
-              <Rocket className="w-4 h-4 mr-2" />
-              Aprenda com Milvan
-            </Badge>
+             <span className="inline-block py-1 px-3 rounded-full bg-green-100 text-green-700 text-sm font-semibold mb-6 shadow-sm border border-green-200">🚀 Aprenda com Milvan</span>
             <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">
               Transforme seu tempo em <span className="text-primary">Renda Extra</span>
             </h1>
