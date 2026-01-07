@@ -1,10 +1,19 @@
+export type ProductTag = {
+  text: string;
+  icon?: 'eye' | 'certificate' | 'star';
+};
+
 export type AffiliateProduct = {
   id: string;
   name: string;
-  vendor: string;
-  commission: number;
+  description: string;
+  price: number;
+  rating: number;
+  reviewCount: string;
+  type: 'EBOOK' | 'COURSE';
   imageUrl: string;
   imageHint: string;
+  tags: ProductTag[];
 };
 
 export type Tutorial = {

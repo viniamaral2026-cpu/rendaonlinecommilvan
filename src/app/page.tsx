@@ -4,8 +4,9 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Star, ShoppingCart, ArrowRight, Share2, Package, Globe, BarChart, Rocket } from "lucide-react";
+import { Star, ArrowRight, Share2, Package, Globe, BarChart, Rocket, Eye, Award, Download, Dot } from "lucide-react";
 import { TUTORIALS, AFFILIATE_PRODUCTS as DIGITAL_PRODUCTS } from "@/lib/data";
+import { cn } from "@/lib/utils";
 
 const CATEGORIES = [
   {
@@ -16,7 +17,6 @@ const CATEGORIES = [
     bgColor: "bg-blue-50 dark:bg-blue-900/20",
     iconColor: "text-blue-500",
     footerText: "Comissões Altas",
-    footerIconColor: "text-green-500 fill-green-500",
   },
   {
     icon: Package,
@@ -25,8 +25,7 @@ const CATEGORIES = [
     link: "/#",
     bgColor: "bg-orange-50 dark:bg-orange-900/20",
     iconColor: "text-orange-500",
-    footerText: "Cheg",
-    footerIconColor: "text-green-500 fill-green-500",
+    footerText: "Margens de Lucro",
   },
   {
     icon: Globe,
@@ -35,8 +34,7 @@ const CATEGORIES = [
     link: "/#",
     bgColor: "bg-purple-50 dark:bg-purple-900/20",
     iconColor: "text-purple-500",
-    footerText: "WhatsApp",
-    footerIconColor: "text-green-500 fill-green-500",
+    footerText: "Alta Conversão",
   },
   {
     icon: BarChart,
@@ -46,9 +44,15 @@ const CATEGORIES = [
     bgColor: "bg-green-50 dark:bg-green-900/20",
     iconColor: "text-green-500",
     footerText: "Apps Confiáveis",
-    footerIconColor: "text-green-500 fill-green-500",
   },
 ];
+
+
+const tagIcons = {
+  eye: Eye,
+  certificate: Award,
+  star: Star
+}
 
 
 export default function HomePage() {
@@ -100,10 +104,10 @@ export default function HomePage() {
           <div className="inline-block w-20 h-1 bg-primary mt-2 mb-12 rounded-full"></div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {CATEGORIES.map((category) => (
-              <Card key={category.title} className={`text-left hover:shadow-lg transition-shadow border-none ${category.bgColor}`}>
+              <Card key={category.title} className={cn("text-left hover:shadow-lg transition-shadow border-none", category.bgColor)}>
                 <CardHeader>
-                   <div className="rounded-lg w-full p-3 flex items-center justify-start bg-white/60 mb-4">
-                    <category.icon className={`w-6 h-6 ${category.iconColor}`} />
+                   <div className="rounded-lg w-fit p-3 flex items-center justify-start bg-background/60 mb-4">
+                    <category.icon className={cn("w-6 h-6", category.iconColor)} />
                   </div>
                   <CardTitle>{category.title}</CardTitle>
                 </CardHeader>
@@ -111,9 +115,9 @@ export default function HomePage() {
                   <p className="text-muted-foreground text-sm">{category.description}</p>
                 </CardContent>
                 <CardFooter>
-                   <div className="flex items-center text-sm text-muted-foreground">
-                      <Star className={`w-4 h-4 mr-2 ${category.footerIconColor}`} />
-                      <span className="font-semibold">{category.footerText}</span>
+                   <div className="flex items-center text-sm font-semibold text-primary">
+                      <Star className="w-4 h-4 mr-2 fill-current" />
+                      <span>{category.footerText}</span>
                    </div>
                 </CardFooter>
               </Card>
@@ -145,28 +149,51 @@ export default function HomePage() {
              <div className="inline-block w-20 h-1 bg-primary mt-4 rounded-full"></div>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {DIGITAL_PRODUCTS.slice(0, 3).map((product) => (
-              <Card key={product.id} className="overflow-hidden group">
-                <CardHeader className="p-0">
+            {DIGITAL_PRODUCTS.map((product) => (
+              <Card key={product.id} className="overflow-hidden group flex flex-col">
+                <div className="relative">
                   <Image src={product.imageUrl} alt={product.name} width={600} height={400} className="object-cover w-full h-48 group-hover:scale-105 transition-transform" data-ai-hint={product.imageHint} />
-                </CardHeader>
-                <CardContent className="p-6">
-                  <Badge variant="secondary">eBook</Badge>
-                  <CardTitle className="mt-2 mb-2">{product.name}</CardTitle>
-                  <CardDescription className="text-sm line-clamp-2">{product.vendor}</CardDescription>
-                  <div className="flex items-center mt-4">
-                    <div className="flex text-yellow-400">
-                      {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
-                    </div>
-                    <span className="text-xs text-muted-foreground ml-2">(4.5)</span>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <Badge className="absolute top-4 right-4 bg-white/90 text-gray-800 hover:bg-white">
+                    {product.type}
+                  </Badge>
+                  <div className="absolute bottom-2 left-4 flex flex-col gap-2">
+                    {product.tags.map((tag) => {
+                      const TagIcon = tag.icon ? tagIcons[tag.icon] : null;
+                      const isSpyButton = tag.text === "Espiar";
+                      return (
+                        <div key={tag.text} className={cn("flex items-center", {
+                          "bg-white/90 text-gray-800 rounded-full px-3 py-1 text-sm font-semibold hover:bg-white cursor-pointer": isSpyButton,
+                          "text-white text-xs font-medium": !isSpyButton
+                        })}>
+                          {!isSpyButton && <Dot className="text-red-500 w-6 h-6 -ml-2" />}
+                          {TagIcon && isSpyButton && <TagIcon className="w-4 h-4 mr-2" />}
+                          <span>{tag.text}</span>
+                        </div>
+                      );
+                    })}
                   </div>
+                </div>
+                <CardContent className="p-6 flex-grow">
+                  <CardTitle className="mt-2 mb-2 text-xl">{product.name}</CardTitle>
+                  <CardDescription className="text-sm line-clamp-3">{product.description}</CardDescription>
                 </CardContent>
-                <CardFooter className="flex justify-between items-center bg-muted/50 px-6 py-4">
-                  <span className="text-lg font-bold text-destructive">{product.commission * 10} MT</span>
-                  <Button>
-                    <ShoppingCart className="w-4 h-4 mr-2" />
-                    Comprar
-                  </Button>
+                <CardFooter className="px-6 pb-6 mt-auto">
+                  <div className="w-full">
+                    <div className="flex items-center mt-4 mb-4">
+                      <div className="flex text-yellow-400">
+                        {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-current" />)}
+                      </div>
+                      <span className="text-sm text-muted-foreground ml-2">{product.reviewCount}</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                       <span className="text-2xl font-bold text-primary">{product.price} MT</span>
+                      <Button variant="secondary" className="bg-gray-800 text-white hover:bg-gray-900">
+                        <Download className="w-4 h-4 mr-2" />
+                        Comprar
+                      </Button>
+                    </div>
+                  </div>
                 </CardFooter>
               </Card>
             ))}

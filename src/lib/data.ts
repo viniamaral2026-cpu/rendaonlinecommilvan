@@ -1,14 +1,7 @@
-import type { AffiliateProduct, DashboardStats, RecentSale, SalesData, Tutorial } from './types';
+import type { AffiliateProduct, RecentSale, Tutorial } from './types';
 import { PlaceHolderImages } from './placeholder-images';
 
 const getImage = (id: string) => PlaceHolderImages.find(img => img.id === id) || { imageUrl: '', imageHint: '' };
-
-export const DASHBOARD_STATS: DashboardStats = {
-  totalSales: { value: 4523, change: 12.5 },
-  totalRevenue: { value: 345231.89, change: 8.2 },
-  averageTicket: { value: 76.32, change: -2.1 },
-  conversionRate: { value: 2.34, change: 5.7 },
-};
 
 export const RECENT_SALES: RecentSale[] = [
   {
@@ -53,71 +46,52 @@ export const RECENT_SALES: RecentSale[] = [
   },
 ];
 
-export const SALES_DATA: SalesData[] = [
-  { name: 'Jan', total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: 'Feb', total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: 'Mar', total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: 'Apr', total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: 'May', total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: 'Jun', total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: 'Jul', total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: 'Aug', total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: 'Sep', total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: 'Oct', total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: 'Nov', total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: 'Dec', total: Math.floor(Math.random() * 5000) + 1000 },
-];
-
 export const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
   {
     id: '1',
-    name: 'Smartphone Pro X',
-    vendor: 'TechGiant',
-    commission: 15,
-    imageUrl: getImage('affiliate-product-1').imageUrl,
-    imageHint: getImage('affiliate-product-1').imageHint,
+    name: 'Guia Definitivo do Marketing Digital',
+    description: 'Aprenda do zero como montar sua estrutura de vendas online. Estratégias de tráfego pago e...',
+    price: 250,
+    rating: 4.9,
+    reviewCount: '(4.9)',
+    type: 'EBOOK',
+    imageUrl: "https://picsum.photos/seed/coffee-book/600/400",
+    imageHint: "coffee book",
+    tags: [
+      { text: 'Leitura Obri', icon: 'star' },
+      { text: 'Espiar', icon: 'eye' },
+    ],
   },
   {
     id: '2',
-    name: 'Laptop UltraSlim',
-    vendor: 'InnovatePC',
-    commission: 12,
-    imageUrl: getImage('affiliate-product-2').imageUrl,
-    imageHint: getImage('affiliate-product-2').imageHint,
+    name: 'Mestre da Importação China-Moçambique',
+    description: 'Lista de fornecedores confiáveis, logística e métodos de envio seguros para maximizar seus lucros.',
+    price: 500,
+    rating: 4.9,
+    reviewCount: '(4.9)',
+    type: 'COURSE',
+    imageUrl: "https://picsum.photos/seed/vintage-cameras/600/400",
+    imageHint: "vintage cameras",
+    tags: [
+      { text: 'Certificado Inclus', icon: 'certificate' },
+    ],
   },
   {
     id: '3',
-    name: 'Headphones SoundMax',
-    vendor: 'AudioPhile',
-    commission: 20,
-    imageUrl: getImage('affiliate-product-3').imageUrl,
-    imageHint: getImage('affiliate-product-3').imageHint,
-  },
-  {
-    id: '4',
-    name: 'Câmera 4K Vision',
-    vendor: 'PhotoPro',
-    commission: 18,
-    imageUrl: getImage('affiliate-product-4').imageUrl,
-    imageHint: getImage('affiliate-product-4').imageHint,
-  },
-  {
-    id: '5',
-    name: 'Smartwatch Connect',
-    vendor: 'Wearables Inc.',
-    commission: 22,
-    imageUrl: getImage('affiliate-product-5').imageUrl,
-    imageHint: getImage('affiliate-product-5').imageHint,
-  },
-  {
-    id: '6',
-    name: 'Cadeira Ergonômica',
-    vendor: 'ComfortZone',
-    commission: 10,
-    imageUrl: getImage('affiliate-product-6').imageUrl,
-    imageHint: getImage('affiliate-product-6').imageHint,
+    name: 'Copywriting para WhatsApp',
+    description: 'Textos que vendem: scripts prontos para fechar vendas no x1. Gatilhos mentais e quebra de objeções.',
+    price: 150,
+    rating: 4.9,
+    reviewCount: '(4.9)',
+    type: 'EBOOK',
+    imageUrl: "https://picsum.photos/seed/shipping-crane/600/400",
+    imageHint: "shipping crane",
+    tags: [
+      { text: 'Essencial', icon: 'star' },
+    ],
   },
 ];
+
 
 export const TUTORIALS: Tutorial[] = [
   {
