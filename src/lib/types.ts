@@ -23,27 +23,3 @@ export type RecentSale = {
   avatarUrl: string;
   avatarHint: string;
 };
-
-export type DashboardStats = {
-  totalSales: {
-    value: number;
-    change: number;
-  };
-  totalRevenue: {
-    value: number;
-    change: number;
-  };
-  averageTicket: {
-    value: number;
-    change: number;
-  };
-  conversionRate: {
-    value: number;
-    change: number;
-  };
-};
-
-export type SalesData = {
-  name: string;
-  total: number;
-};
