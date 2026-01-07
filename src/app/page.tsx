@@ -64,9 +64,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
              <span className="inline-block py-1 px-3 rounded-full bg-green-100 text-green-700 text-sm font-semibold mb-6 shadow-sm border border-green-200">🚀 Aprenda com Milvan</span>
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">
-              Transforme seu tempo em <span className="text-primary">Renda Extra</span>
-            </h1>
+             <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-6 h-32 md:h-auto">Transforme seu tempo em <br className="md:hidden" /><span className="text-green-600 drop-shadow-sm"><span className="">Sucesso Dig<span className="animate-pulse ml-1 text-green-500">|</span></span></span></h1>
             <p className="text-lg text-muted-foreground">
               Bem-vindo ao Renda Online Fácil. A plataforma completa para você dominar o Marketing de Afiliados, Importação e Vendas Online. O método prático para quem quer resultados.
             </p>
