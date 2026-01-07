@@ -5,8 +5,8 @@ import { useFormState, useFormStatus } from 'react-dom';
 import { askConsultant } from './actions';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Card, CardContent } from '@/components/ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Send, Sparkles, User } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
@@ -74,59 +74,67 @@ export default function IAConsultantPage() {
   };
   
   return (
-    <div className="flex flex-col h-[calc(100vh-5rem)] bg-gray-50 dark:bg-gray-900">
-       <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-6">
-            {messages.map((message) => (
-                <div key={message.id} className={cn("flex items-start gap-4", message.role === 'user' ? 'justify-end' : 'justify-start')}>
-                    {message.role === 'assistant' && (
-                        <Avatar className="w-10 h-10 border-2 border-primary/50">
-                            <div className="relative w-full h-full">
-                                <Image src="/LOGO_DRESBACH_500-removebg-preview.png" alt="Milvan IA" layout="fill" objectFit="cover" />
-                            </div>
-                        </Avatar>
-                    )}
-                    <div className={cn(
-                        "max-w-md md:max-w-lg lg:max-w-xl p-4 rounded-2xl shadow-sm",
-                        message.role === 'user' 
-                            ? "bg-primary text-primary-foreground rounded-br-none" 
-                            : "bg-background text-foreground rounded-bl-none border"
-                    )}>
-                        <p className="whitespace-pre-wrap">{message.text}</p>
-                    </div>
-                     {message.role === 'user' && (
-                        <Avatar className="w-10 h-10 bg-muted border">
-                            <AvatarFallback>
-                                <User className="w-5 h-5 text-muted-foreground" />
-                            </AvatarFallback>
-                        </Avatar>
-                    )}
-                </div>
-            ))}
-             <div ref={messagesEndRef} />
+    <div className="container mx-auto px-4 py-8">
+      <div className="max-w-2xl mx-auto">
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-bold">Consultor IA</h1>
+          <p className="text-muted-foreground mt-2">Faça uma pergunta e receba ajuda para sua jornada de renda online.</p>
         </div>
+        <Card className="flex flex-col h-[600px]">
+          <CardContent className="flex-1 overflow-y-auto p-4 md:p-6 space-y-6">
+              {messages.map((message) => (
+                  <div key={message.id} className={cn("flex items-start gap-4", message.role === 'user' ? 'justify-end' : 'justify-start')}>
+                      {message.role === 'assistant' && (
+                          <Avatar className="w-10 h-10 border-2 border-primary/50">
+                              <div className="relative w-full h-full">
+                                  <Image src="/LOGO_DRESBACH_500-removebg-preview.png" alt="Milvan IA" layout="fill" objectFit="cover" />
+                              </div>
+                          </Avatar>
+                      )}
+                      <div className={cn(
+                          "max-w-md p-4 rounded-2xl shadow-sm",
+                          message.role === 'user' 
+                              ? "bg-primary text-primary-foreground rounded-br-none" 
+                              : "bg-background text-foreground rounded-bl-none border"
+                      )}>
+                          <p className="whitespace-pre-wrap">{message.text}</p>
+                      </div>
+                      {message.role === 'user' && (
+                          <Avatar className="w-10 h-10 bg-muted border">
+                              <AvatarFallback>
+                                  <User className="w-5 h-5 text-muted-foreground" />
+                              </AvatarFallback>
+                          </Avatar>
+                      )}
+                  </div>
+              ))}
+              <div ref={messagesEndRef} />
+          </CardContent>
 
-        <div className="p-4 bg-background border-t">
-            <div className="max-w-2xl mx-auto">
-                 <form
-                    ref={formRef}
-                    action={handleFormSubmit}
-                    className="flex items-center gap-2"
-                    >
-                    <Input
-                        name="question"
-                        value={input}
-                        onChange={(e) => setInput(e.target.value)}
-                        placeholder="Digite sua dúvida aqui..."
-                        className="flex-1"
-                        autoComplete="off"
-                    />
-                    <SubmitButton />
-                </form>
-                <p className="text-xs text-center text-muted-foreground mt-2">
-                    IA Consultant por Renda Online Fácil. Respostas para fins educacionais.
-                </p>
-            </div>
-        </div>
+          <CardFooter className="p-4 border-t">
+              <div className="w-full">
+                  <form
+                      ref={formRef}
+                      action={handleFormSubmit}
+                      className="flex items-center gap-2"
+                      >
+                      <Input
+                          name="question"
+                          value={input}
+                          onChange={(e) => setInput(e.target.value)}
+                          placeholder="Digite sua dúvida aqui..."
+                          className="flex-1"
+                          autoComplete="off"
+                      />
+                      <SubmitButton />
+                  </form>
+                  <p className="text-xs text-center text-muted-foreground mt-2">
+                      IA Consultant por Renda Online Fácil. Respostas para fins educacionais.
+                  </p>
+              </div>
+          </CardFooter>
+        </Card>
+      </div>
     </div>
   );
 }
