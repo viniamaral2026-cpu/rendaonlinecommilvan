@@ -65,7 +65,7 @@ export default function HomePage() {
             <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
                 <div className="mb-12 lg:mb-0 relative z-10">
                     <span className="inline-block py-1 px-3 rounded-full bg-green-100 text-green-700 text-sm font-semibold mb-6 shadow-sm border border-green-200">🚀 Aprenda com Milvan</span>
-                    <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-6 h-32 md:h-auto">Transforme seu tempo em <br className="md:hidden" /><span className="text-green-600 drop-shadow-sm"><span className="">Sucesso Digital<span className="animate-pulse ml-1 text-green-500">|</span></span></span></h1>
+                    <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-6 h-32 md:h-auto">Transforme seu tempo em <br className="md:hidden" /><span className="text-green-600 drop-shadow-sm">Sucesso Digital<span className="animate-pulse ml-1 text-green-500">|</span></span></h1>
                     <p className="text-lg text-gray-600 mb-8 leading-relaxed">Bem-vindo ao <strong>Renda Online Fácil</strong>. A plataforma completa para você dominar o Marketing de Afiliados, Importação e Vendas Online. O método prático para quem quer resultados.</p>
                     <div className="flex flex-col sm:flex-row gap-4">
                         <a href="#tutorials" className="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-green-600 hover:bg-green-700 shadow-lg shadow-green-300 transition-all hover:-translate-y-1 active:scale-95">Ver Aulas Premium<ArrowRight className="ml-2 h-5 w-5" /></a>
@@ -341,5 +341,3 @@ export default function HomePage() {
     </div>
   );
 }
-
-    
