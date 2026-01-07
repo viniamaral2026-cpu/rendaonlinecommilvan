@@ -8,7 +8,6 @@
  * - IaConsultantOutput - O tipo de retorno para a função askConsultant.
  */
 
-import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
 import { KNOWLEDGE_BASE } from '../data/knowledge-base';
 
@@ -26,7 +25,9 @@ function findRelevantKnowledge(query: string): string {
 Você pode perguntar sobre qualquer um desses tópicos!`;
 
     if (!query) {
-        return fallbackAnswer;
+        // Find greeting if query is empty
+        const greeting = KNOWLEDGE_BASE.find(item => item.keywords.includes("oi"));
+        return greeting ? greeting.answer : fallbackAnswer;
     }
     
     KNOWLEDGE_BASE.forEach(item => {
@@ -65,32 +66,21 @@ const IaConsultantInputSchema = z.object({
 export type IaConsultantInput = z.infer<typeof IaConsultantInputSchema>;
 
 const IaConsultantOutputSchema = z.object({
-  answer: z.string().describe('A resposta gerada pela IA para a pergunta do usuário.'),
+  answer: z.string().describe('A resposta gerada para a pergunta do usuário a partir da base de conhecimento.'),
 });
 export type IaConsultantOutput = z.infer<typeof IaConsultantOutputSchema>;
 
+// This function now directly uses the local knowledge base without calling an external AI model.
 export async function askConsultant(input: IaConsultantInput): Promise<IaConsultantOutput> {
-  return iaConsultantFlow(input);
+  const answer = findRelevantKnowledge(input.question);
+  return { answer };
 }
 
-const prompt = ai.definePrompt({
-  name: 'iaConsultantPrompt',
-  input: { schema: z.object({ question: z.string(), context: z.string() }) },
-  output: { schema: IaConsultantOutputSchema },
-  prompt: `Você é Milvan, o especialista por trás do "Renda Online Fácil". Sua personalidade é amigável, direta e motivadora.
-  
-  Sua tarefa é responder à pergunta do usuário usando APENAS as informações fornecidas no CONTEXTO abaixo. Não invente nada.
-  Se o contexto já for uma resposta completa, use-a diretamente. Se for uma explicação geral, use-a para contextualizar a resposta à pergunta específica.
-  Seja breve e vá direto ao ponto. Use um tom encorajador e prático.
+// NOTE: The Genkit flow and prompt definitions below are no longer used in the askConsultant function.
+// They are kept here for potential future use if you decide to re-enable the external AI model.
+// To re-enable, you would need to restore the `iaConsultantFlow` call inside `askConsultant`.
 
-  CONTEXTO:
-  {{{context}}}
-
-  PERGUNTA DO USUÁRIO:
-  "{{{question}}}"
-
-  Sua Resposta:`,
-});
+import { ai } from '@/ai/genkit';
 
 const iaConsultantFlow = ai.defineFlow(
   {
@@ -99,13 +89,7 @@ const iaConsultantFlow = ai.defineFlow(
     outputSchema: IaConsultantOutputSchema,
   },
   async (input) => {
-    const context = findRelevantKnowledge(input.question);
-    
-    const { output } = await prompt({
-      question: input.question,
-      context: context,
-    });
-    
-    return output!;
+    const answer = findRelevantKnowledge(input.question);
+    return { answer };
   }
 );
