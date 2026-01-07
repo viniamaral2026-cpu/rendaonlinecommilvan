@@ -188,7 +188,7 @@ export default function HomePage() {
                 </CardContent>
                  <CardFooter className="p-4">
                     <Button className="w-full">
-                      Desbloquear ({Math.floor(Math.random() * 100 + 50)} MT)
+                      Desbloquear (99 MT)
                     </Button>
                  </CardFooter>
               </Card>
